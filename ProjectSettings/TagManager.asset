@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Concrete
+  - Grass
+  - ForestRoad
+  - Person
+  - FX
+  - Wood
+  - InteractFar
+  - OWLInteract
+  - lb_groundTarget
+  - FxTemporaire
+  - Krot
+  - Destroyable
+  - VineWall
+  - Trigger
+  - SimpleEnemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Outline
+  - Interactable
+  - Flares
+  - Trigger
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Ground
+  - NonVisible
+  - whatIsGround
+  - Pickup
+  - DistortionEffect
+  - WeaponCamera
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Up
+    uniqueID: 2702318621
+    locked: 0

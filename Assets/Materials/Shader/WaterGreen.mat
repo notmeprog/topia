@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3141236433153500760
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterGreen
+  m_Shader: {fileID: -6465566751694194690, guid: f57fc463ba9da1c4f800b5ef1b040938,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_0d72d37d5749495d826316d4e9c7e420: 0.65
+    - Vector1_20024943164446ccb2e27790ed1e3c7f: 3
+    - Vector1_3f3d505b0e8e45919d203770ddfea80d: 14.8
+    - Vector1_6dc06f845e2644d192cf847751015925: 5
+    - Vector1_7e158277190c4b9d806794d066a380f9: 1
+    - Vector1_899b469304c14139845db84ad31096a8: 0.03
+    - Vector1_8b982a5ffde443df88534f60c18d6cba: 7
+    - Vector1_c836f3d54e2b4f7a98cbb9ac867b93ed: 7
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - Color_6d6cd8644fa24f7386695bec61b0af43: {r: 0.2311321, g: 0.5091807, b: 1, a: 0.4117647}
+    - Color_83eaa1ee1563454eaa3ba07f6c2e1174: {r: 0.03778517, g: 1.882122, b: 2.670157,
+        a: 0.44705883}
+    - Color_c74068b4b33c45f4adf3e4ba9b22b5b5: {r: 0.9189588, g: 3.4415908, b: 0, a: 0}
+    - Color_e21416db1f7e408b932b071c8ddf040a: {r: 0.016265491, g: 0.23584908, b: 0,
+        a: 0}
+  m_BuildTextureStacks: []
