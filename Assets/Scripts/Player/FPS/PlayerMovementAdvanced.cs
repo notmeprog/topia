@@ -20,6 +20,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public float groundDrag;
 
     [Header("Jumping")]
+    public bool canJump = true;
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -113,7 +114,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded && !stopMoving)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && !stopMoving && canJump)
         {
             readyToJump = false;
 

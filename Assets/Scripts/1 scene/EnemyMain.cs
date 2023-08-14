@@ -8,6 +8,7 @@ public class EnemyMain : MonoBehaviour
     [SerializeField] int health = 100;
     [SerializeField] MMFeedbacks damageFeedback;
     [SerializeField] GameObject particleDead;
+    public bool isDead = false;
 
     [Header("AnimHit")]
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -32,6 +33,8 @@ public class EnemyMain : MonoBehaviour
 
     void DeathEnemy()
     {
+        isDead = true;
+
         Instantiate(particleDead, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

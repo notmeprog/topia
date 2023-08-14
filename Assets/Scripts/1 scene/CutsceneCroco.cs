@@ -9,7 +9,12 @@ public class CutsceneCroco : MonoBehaviour
     [SerializeField] ChangeView changeViewSc;
     [SerializeField] PlayerMovementAdvanced playerMovementAdvancedSc;
 
+    [SerializeField] private Animator radioAudioPitch;
+    [SerializeField] EnemyMain crocoHealthSc;
+
     AudioSource audioSource;
+
+    bool oneTime = false;
 
     private void Start()
     {
@@ -21,6 +26,8 @@ public class CutsceneCroco : MonoBehaviour
         changeViewSc.ChangeViewToAnother(crocoObj.transform);
 
         playerMovementAdvancedSc.stopMoving = true;
+
+        radioAudioPitch.SetTrigger("PitchDown");
 
         Invoke("ActiveCroco", 2);
 
@@ -37,5 +44,14 @@ public class CutsceneCroco : MonoBehaviour
     {
         playerMovementAdvancedSc.stopMoving = false;
         changeViewSc.ChangeViewToPlayer();
+    }
+
+    void Update()
+    {
+        if (crocoHealthSc.isDead && !oneTime)
+        {
+            radioAudioPitch.SetTrigger("PitchUp");
+            oneTime = true;
+        }
     }
 }

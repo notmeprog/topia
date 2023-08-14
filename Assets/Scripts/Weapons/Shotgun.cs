@@ -18,6 +18,8 @@ public class Shotgun : MonoBehaviour
     Animator animShotgun;
 
     [Header("Hit")]
+    [SerializeField] private GameObject spriteMaskEn;
+    [SerializeField] private GameObject bloodParticle;
     [SerializeField] GameObject hitEffect;
     [SerializeField] Animator crosshairAnim;
 
@@ -31,6 +33,7 @@ public class Shotgun : MonoBehaviour
     TimeFreezer timeFreezerSc;
 
     PlayerMovementAdvanced playerMovementAdvanced;
+
 
     void Awake()
     {
@@ -114,6 +117,9 @@ public class Shotgun : MonoBehaviour
             }
             else if (hit.collider.tag == "SimpleEnemy")
             {
+
+                UseSpriteMask(hit, hit.collider.transform);
+
                 timeFreezerSc.FreezeTime(.1f);
                 crosshairAnim.SetTrigger("Hit");
 
@@ -122,5 +128,14 @@ public class Shotgun : MonoBehaviour
                     enemy.TakeDamage(damage);
             }
         }
+    }
+
+    void UseSpriteMask(RaycastHit hit, Transform parent)
+    {
+        GameObject spriteMask1 = Instantiate(spriteMaskEn, hit.point, Quaternion.LookRotation(hit.normal));
+
+        spriteMask1.transform.SetParent(parent.Find("Sprite"));
+
+        Instantiate(bloodParticle, hit.point, Quaternion.LookRotation(-hit.normal));
     }
 }
