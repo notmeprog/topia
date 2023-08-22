@@ -10,6 +10,8 @@ public class PlayerFirstCamera : MonoBehaviour
     float xRotation;
     public float yRotation;
 
+    [SerializeField] bool needLimitX = false;
+
 
     void Start()
     {
@@ -28,6 +30,15 @@ public class PlayerFirstCamera : MonoBehaviour
         xRotation -= mouseY;
 
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        if (needLimitX)
+        {
+            yRotation = Mathf.Clamp(yRotation, 135f, 225f);
+
+            if (yRotation > 135 && yRotation < 150 || yRotation > 210 && yRotation < 225)
+                sensX = 35;
+            else sensX = 55;
+        }
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);

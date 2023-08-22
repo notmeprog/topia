@@ -13,6 +13,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
+    public bool canSprint = true;
 
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     Animator cameraAnim;
@@ -99,7 +100,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
         else
             rb.drag = 0;
 
-        DynamicFov();
+        if (canSprint)
+            DynamicFov();
+
         Animate();
     }
 
@@ -124,14 +127,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
 
         // start crouch
-        if (Input.GetKeyDown(crouchKey))
+        if (Input.GetKeyDown(crouchKey) && !stopMoving)
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
         }
 
         // stop crouch
-        if (Input.GetKeyUp(crouchKey))
+        if (Input.GetKeyUp(crouchKey) && !stopMoving)
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
@@ -153,7 +156,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
 
         // Mode - Sprinting
-        else if (grounded && Input.GetKey(sprintKey) && !stopMoving)
+        else if (grounded && Input.GetKey(sprintKey) && !stopMoving && canSprint)
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
@@ -175,7 +178,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     void Animate()
     {
-        if (state == MovementState.walking && (horizontalInput != 0 || verticalInput != 0) && state != MovementState.air)
+        if (state == MovementState.walking && (horizontalInput != 0 || verticalInput != 0) && state != MovementState.air && !stopMoving)
             cameraAnim.SetBool("Walk", true);
         else
             cameraAnim.SetBool("Walk", false);

@@ -21,6 +21,7 @@ public class FootstepSystem : MonoBehaviour
     {
         if (Physics.Raycast(rayStart.position, rayStart.transform.up * -1, out hit, range, layerMask))
         {
+            print("step");
             if (hit.collider.CompareTag("Grass"))
             {
                 PlayFootstepSound(grass);
@@ -45,5 +46,6 @@ public class FootstepSystem : MonoBehaviour
         //print("sfxReal");
         audioSource.pitch = Random.Range(.8f, 1);
         audioSource.PlayOneShot(audio);
+
     }
 }
