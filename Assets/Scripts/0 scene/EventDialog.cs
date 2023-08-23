@@ -26,8 +26,8 @@ namespace Febucci.UI.Examples
         [SerializeField] private TextMeshProUGUI[] textButtons;
         Animator[] buttonsAnim = new Animator[2];
 
-        [Header("Анимация кружка")]
-        [SerializeField] private Animator circleTime;
+        [Header("Питч вниз")]
+        [SerializeField] private Animator pitchAudio;
 
         private void Awake()
         {
@@ -46,7 +46,7 @@ namespace Febucci.UI.Examples
         {
             switch (message)
             {
-                case "answ":
+                case "answr":
                     dialogTypewrite.activeAnswers = true;
 
                     keyboardNavigation.canChoice = true;
@@ -58,6 +58,15 @@ namespace Febucci.UI.Examples
                         buttons[i].SetActive(true);
 
                     break;
+                case "stop":
+                    CameraShake.Instance.ShakeCamera(3f, 0.1f, 1);
+                    break;
+                case "danger":
+                    pitchAudio.SetTrigger("PitchDown");
+                    break;
+                case "backDanger":
+                    pitchAudio.SetTrigger("PitchUp");
+                    break;
             }
         }
 
@@ -66,6 +75,8 @@ namespace Febucci.UI.Examples
             dialogTypewrite.strings[dialogTypewrite.NumberString + 1] = firstAnswers[numberAnswer];
 
             buttonsAnim[1].SetTrigger("End");
+
+            Invoke("ButtonLeftEnd", 1);
 
             Invoke("AfterAnswer", 1);
         }
@@ -76,7 +87,20 @@ namespace Febucci.UI.Examples
 
             buttonsAnim[0].SetTrigger("End");
 
+            Invoke("ButtonRightEnd", 1);
+
             Invoke("AfterAnswer", 1);
+        }
+
+        void ButtonLeftEnd()
+        {
+            buttonsAnim[0].SetTrigger("End");
+        }
+
+
+        void ButtonRightEnd()
+        {
+            buttonsAnim[1].SetTrigger("End");
         }
 
         void AfterAnswer()
@@ -85,11 +109,10 @@ namespace Febucci.UI.Examples
                 buttons[i].SetActive(false);
 
             dialogTypewrite.activeAnswers = false;
-            circleTime.SetTrigger("Idle");
 
             numberAnswer++;
 
-            dialogTypewrite.NextString();
+            dialogTypewrite.EndLine();
         }
     }
 }

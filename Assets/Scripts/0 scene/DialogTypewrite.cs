@@ -8,7 +8,7 @@ using Honeti;
 public class DialogTypewrite : MonoBehaviour
 {
     [Header("Локализация")]
-    public I18NTextMesh i18NTextMesh;
+    //public I18NTextMesh i18NTextMesh;
 
     [Space(10)]
     [SerializeField] TextMeshProUGUI textDialog;
@@ -16,7 +16,7 @@ public class DialogTypewrite : MonoBehaviour
 
     [Header("Диалог")]
     public string[] strings;
-    public string[] addStrings;
+    // public string[] addStrings;
 
 
     public bool needCircle = true;
@@ -64,6 +64,7 @@ public class DialogTypewrite : MonoBehaviour
 
     public void EndLine()
     {
+        print("end of line");
         if (!activeAnswers)
         {
             Invoke("NextString", timeWait);
@@ -78,7 +79,7 @@ public class DialogTypewrite : MonoBehaviour
         numberString++;
         textDialog.text = strings[numberString];
 
-        i18NTextMesh.updateDialogText(strings[numberString]);
+        //i18NTextMesh.updateDialogText(strings[numberString]);
 
         print(strings[numberString]);
 

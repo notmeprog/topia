@@ -124,6 +124,170 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!43 &14432571
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 0
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 0
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 0
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 0
+    _typelessdata: 
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 500, y: 500, z: 500}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &50675849
 GameObject:
   m_ObjectHideFlags: 0
@@ -21448,7 +21612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
+  m_AmplitudeGain: 1.25
   m_FrequencyGain: 0.1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &424891824
@@ -22890,6 +23054,7 @@ GameObject:
   - component: {fileID: 627142384}
   - component: {fileID: 627142386}
   - component: {fileID: 627142385}
+  - component: {fileID: 627142387}
   m_Layer: 5
   m_Name: Text (TMP)_1
   m_TagString: Untagged
@@ -22965,8 +23130,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -23015,6 +23180,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627142383}
   m_CullTransparentMesh: 1
+--- !u!114 &627142387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627142383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerAnimPlayerOnChange: 0
+  effectIntensityMultiplier: 50
+  appearancesContainer:
+    tagsFallback_Appearances:
+    - size
+    tagsFallback_Disappearances:
+    - size
+    values:
+      defaults:
+        sizeDuration: 0.3
+        sizeAmplitude: 2
+        fadeDuration: 0.3
+        verticalExpandDuration: 0.3
+        verticalFromBottom: 0
+        horizontalExpandDuration: 0.3
+        horizontalExpandStart: 0
+        diagonalExpandDuration: 0.3
+        diagonalFromBttmLeft: 0
+        offsetDir: {x: 1, y: 1}
+        offsetDuration: 0.3
+        offsetAmplitude: 1
+        rotationDuration: 0.3
+        rotationStartAngle: 180
+        randomDirDuration: 0.3
+        randomDirAmplitude: 1
+      presets: []
+  tags_fallbackBehaviors: []
+  behaviorValues:
+    defaults:
+      wiggleAmplitude: 0.15
+      wiggleFrequency: 7.67
+      waveFrequency: 4.78
+      waveAmplitude: 0.2
+      waveWaveSize: 0.18
+      angleSpeed: 180
+      angleDiffBetweenChars: 10
+      swingAmplitude: 27.5
+      swingFrequency: 5
+      swingWaveSize: 0
+      shakeStrength: 0.085
+      shakeDelay: 0.04
+      sizeAmplitude: 1.4
+      sizeFrequency: 4.84
+      sizeWaveSize: 0.18
+      slideAmplitude: 0.12
+      slideFrequency: 5
+      slideWaveSize: 0
+      bounceAmplitude: 0.08
+      bounceFrequency: 1
+      bounceWaveSize: 0.08
+      hueShiftSpeed: 0.8
+      hueShiftWaveSize: 0.08
+      fadeDelay: 1.2
+      dangleAmplitude: 0.13
+      dangleFrequency: 2.41
+      dangleWaveSize: 0.18
+      dangleAnchorBottom: 0
+      pendAmplitude: 25
+      pendFrequency: 3
+      pendWaveSize: 0.2
+      pendInverted: 0
+    presets: []
+  scriptable_globalBehaviorsValues: {fileID: 0}
+  scriptable_globalAppearancesValues: {fileID: 0}
+  useDynamicScaling: 0
+  referenceFontSize: -1
+  isResettingEffectsOnNewText: 1
+  timeScale: 0
 --- !u!1 &685503206
 GameObject:
   m_ObjectHideFlags: 0
@@ -59213,7 +59458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d102a8ddc40ec4ba58311b11501a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Active: 1
+  Active: 0
   Label: Rotation
   Chance: 100
   Timing:
@@ -87903,7 +88148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1627542319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88573,7 +88818,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 932.99, y: 138}
+  m_SizeDelta: {x: 844.79, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681290347
 MonoBehaviour:
@@ -88639,21 +88884,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d768f8f5008361443bf887f5ea7dc1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  i18NTextMesh: {fileID: 0}
   textDialog: {fileID: 1801258364}
   playerMovementAdvanced: {fileID: 1583096785}
   strings:
-  - <i>Good</i> evening...<color=yellow>one ticket?</color>
-  - Hmm..<shake><color=purple> <?answ> okay</color></shake>
-  - last
-  - "\u0435\u0449\u0435 \u043E\u0434\u0438\u043D <?answ> \u0432\u043E\u043F\u0440\u043E\u0441"
-  - last
-  addStrings:
-  - 
-  - <shake></shake>
-  - 
-  - 
-  - 
+  - "\u0414\u043E\u0431\u0440\u044B\u0439 \u0432\u0435\u0447\u0435\u0440, <color=yellow>\u0432\u0430\u043C
+    \u0432 \u043E\u0434\u043D\u0443<?answr> \u0441\u0442\u043E\u0440\u043E\u043D\u0443?</color>"
+  - "<i><bounce a=.04 f=.5>\u0445\u0430-\u0445\u0430, <color=yellow>\u0441\u043D\u043E\u0432\u0430
+    \u0443\u0433\u0430\u0434\u0430\u043B\u0430</color></bounce></i>, <speed=3>\u0441
+    \u0432\u0430\u0441 100G. <speed=1>"
+  - "<shake><color=purple>\u041F\u043E\u0441\u0442\u043E\u0439\u0442\u0435!</color></shake>
+    \u041F\u0440\u0435\u0436\u0434\u0435 \u0447\u0435\u043C \u0432\u044B \u0443\u0439\u0434\u0435\u0442\u0435, "
+  - "\u043D\u0435 \u043C\u043E\u0433\u043B\u0438 \u0431\u044B \u0432\u044B <color=yellow>\u043E\u0442\u0432\u0435\u0442\u0438\u0442\u044C
+    \u043D\u0430 \u043F\u0430\u0440\u0443 \u0432\u043E\u043F\u0440\u043E\u0441\u043E\u0432?</color>"
+  - "<color=grey>\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F</color> <wave a=0.1
+    f=2><color=yellow>\u043F\u044B\u0442\u0430\u0435\u0442\u0441\u044F \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C</color></wave> 
+    \u0441\u0438\u0441\u0442\u0435\u043C\u0443 \u043F\u0435\u0440\u0435\u0432\u043E\u0437\u043E\u043A,
+    \u0438.."
+  - "(*\u0447\u0438\u0442\u0430\u0435\u0442 \u0441 \u043B\u0438\u0441\u0442\u0430)
+    <color=green>\xAB\u0432\u0430\u0448\u0430 \u043F\u043E\u043C\u043E\u0449\u044C
+    \u0431\u0443\u0434\u0435\u0442 \u043D\u0435\u0437\u0430\u043C\u0435\u043D\u0438\u043C\u0430\xBB.</color>"
+  - "<color=yellow>\u0427\u0430\u0441\u0442\u043E \u043B\u0438</color> \u0432\u044B
+    \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0443\u0435\u0442\u0435
+    \u043F\u043E \u044D\u0442\u043E\u043C\u0443 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044E
+    <?answr>?"
+  - "<color=grey>\u0443\u0433\u0443,</color> \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
+    \u0432\u043E\u043F\u0440\u043E\u0441:"
+  - "\u041A\u0430\u043A \u0432\u044B <color=yellow>\u043E\u0446\u0435\u043D\u0438\u0432\u0430\u0435\u0442\u0435</color>
+    \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u043E <color=purple>\u0442\u0440\u0430\u043D\u0441\u043F\u043E\u0440\u0442\u043D\u044B\u0445
+    \u043A\u0430\u0431\u0438\u043D</color> <?answr>?"
+  - "\u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C <color=purple>\u0442\u044F\u0436\u0435\u043B\u044B\u0439</color>
+    \u0434\u0435\u043D\u044C? <shake><color=grey>\u043C\u043E\u0433\u0443 \u0432\u0430\u0441
+    \u043F\u043E\u043D\u044F\u0442\u044C.</color></shake>"
+  - "\u0418 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439 \u0432\u043E\u043F\u0440\u043E\u0441\u2026"
+  - "<?danger><speed=.2>\u041A\u0430\u043A\u043E\u0432\u0430 \u0446\u0435\u043B\u044C
+    \u0432\u0430\u0448\u0435\u0439 \u043F\u043E\u0435\u0437\u0434\u043A\u0438 <?answr>?"
+  - "<speed=.4>\u2026\u0414\u0430? \u0414\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C
+    \u0443 \u0432\u0430\u0441 <color=purple>\u0441\u043B\u043E\u0436\u043D\u0430\u044F
+    \u0440\u0430\u0431\u043E\u0442\u0430</color>, \u043D\u0435 \u0442\u0430\u043A
+    \u043B\u0438?."
+  - "<?backDanger><color=grey>\xAB\u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u0447\u0442\u043E
+    \u0443\u0434\u0435\u043B\u0438\u043B\u0438 \u043D\u0430\u043C \u043C\u0438\u043D\u0443\u0442\u043A\u0443,
+    </color><color=red>LC imb. \u041E\u0447\u0435\u043D\u044C \u0446\u0435\u043D\u0438\u0442
+    \u044D\u0442\u043E!\xBB</color>"
+  - "<speed=1>\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439\u2026"
   needCircle: 1
   circleTime: {fileID: 1935346865}
   timeWait: 1.5
@@ -88695,8 +88968,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 50
     m_Right: 20
-    m_Top: 5
-    m_Bottom: 5
+    m_Top: 1
+    m_Bottom: 1
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -88722,17 +88995,38 @@ MonoBehaviour:
   dialogTypewrite: {fileID: 1681290351}
   keyboardNavigation: {fileID: 1228968800}
   firstAnswers:
-  - "\u043E\u0442\u0432\u0435\u0442 \u0432 \u043E\u0434\u043D\u0443"
-  - "\u043F\u0435\u0440\u0432\u044B\u0439 \u0440\u0430\u0437"
+  - "<i><bounce a=.04 f=.5>\u0445\u0430-\u0445\u0430, <color=yellow>\u0441\u043D\u043E\u0432\u0430
+    \u0443\u0433\u0430\u0434\u0430\u043B\u0430</color></bounce></i>, <speed=3>\u0441
+    \u0432\u0430\u0441 100G. <speed=1>"
+  - "<color=grey>\u0443\u0433\u0443,</color> \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
+    \u0432\u043E\u043F\u0440\u043E\u0441:"
+  - "\u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C <color=purple>\u0442\u044F\u0436\u0435\u043B\u044B\u0439</color>
+    \u0434\u0435\u043D\u044C? <shake><color=grey>\u043C\u043E\u0433\u0443 \u0432\u0430\u0441
+    \u043F\u043E\u043D\u044F\u0442\u044C.</color></shake>"
+  - "<speed=.4>\u2026\u0414\u0430? \u0414\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C
+    \u0443 \u0432\u0430\u0441 <color=purple>\u0441\u043B\u043E\u0436\u043D\u0430\u044F
+    \u0440\u0430\u0431\u043E\u0442\u0430</color>, \u043D\u0435 \u0442\u0430\u043A
+    \u043B\u0438?."
   secondAnswers:
-  - "\u043E\u0442\u0432\u0435\u0442 "
-  - "\u043F\u044F\u0442\u044C \u0440\u0430\u0437\u0430 \u043D\u0430 \u0434\u043D\u044E"
+  - "<i><lowercase>\u0445\u043C\u043C..\u0437\u0430\u0447\u0435\u043C \u0442\u0440\u0430\u0442\u0438\u0442\u044C\u0441\u044F
+    \u0435\u0449\u0435 \u0438 \u043D\u0430 \u043E\u0431\u0440\u0430\u0442\u043D\u044B\u0439</lowercase
+    ></i>, <speed=3>\u0441 \u0432\u0430\u0441 120G.<speed=1>\u2026"
+  - "<color=grey>\u0445\u0430-\u0445\u0430\u2026</color> \u0441 <color=yellow>\u044E\u043C\u043E\u0440\u043E\u043C</color>
+    \u0443 \u0432\u0430\u0441 \u0432\u0441\u0435 \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435."
+  - "<wave a=0.1 f=2><color=grey>\u041F\u0440\u0438\u044F\u0442\u043D\u043E</color>
+    \u043E\u0441\u043E\u0437\u043D\u0430\u0432\u0430\u0442\u044C</wave>, \u0447\u0442\u043E
+    \u043E\u043D\u0438 \u0432\u0430\u043C \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u043B\u0438\u0441\u044C."
+  - "<speed=.4><color=grey>\u2026</color>"
   firstShort:
   - "\u0432 \u043E\u0434\u043D\u0443"
   - "\u043F\u0435\u0440\u0432\u044B\u0439 \u0440\u0430\u0437"
+  - "\u043E\u0431\u044B\u0447\u043D\u043E"
+  - "\u0440\u0430\u0431\u043E\u0442\u0430"
   secondShort:
-  - "\u0442\u0443\u0434\u0430 \u0438 \u043E\u0431\u0440\u0430\u0442\u043D\u043E"
+  - "\u0442\u0443\u0434\u0430-\u043E\u0431\u0440\u0430\u0442\u043D\u043E"
   - "\u043F\u044F\u0442\u044C \u0440\u0430\u0437\u0430 \u043D\u0430 \u0434\u043D\u044E"
+  - "<rainb>\u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E</rainb>"
+  - "<color=red>\u0440\u0430\u0431\u043E\u0442\u0430</color>"
   buttons:
   - {fileID: 447272106}
   - {fileID: 1347552817}
@@ -88740,7 +89034,7 @@ MonoBehaviour:
   textButtons:
   - {fileID: 627142385}
   - {fileID: 1920604456}
-  circleTime: {fileID: 1935346865}
+  pitchAudio: {fileID: 1134416254}
 --- !u!4 &1701273376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4144418968677652, guid: 9555b29e19e27964a906dc49c9318cf8,
@@ -93907,7 +94201,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747745096}
-  m_Mesh: {fileID: 2036940268}
+  m_Mesh: {fileID: 14432571}
 --- !u!23 &1747745100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -94127,6 +94421,7 @@ GameObject:
   - component: {fileID: 1801258364}
   - component: {fileID: 1801258366}
   - component: {fileID: 1801258368}
+  - component: {fileID: 1801258369}
   m_Layer: 5
   m_Name: DialgText
   m_TagString: Untagged
@@ -94151,8 +94446,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 417.495, y: -69}
-  m_SizeDelta: {x: 734.99, y: 128}
+  m_AnchoredPosition: {x: 373.395, y: -65}
+  m_SizeDelta: {x: 646.79, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801258364
 MonoBehaviour:
@@ -94202,8 +94497,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -94432,6 +94727,20 @@ MonoBehaviour:
   useTypewriterWaitForDisappearances: 1
   disappearanceWaitTime: 0.015
   disappearanceSpeedMultiplier: 1
+--- !u!114 &1801258369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801258361}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cf0b3813e8d9a468a21ab273b6422d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontOverwrite: 0
+  _params: []
 --- !u!1 &1802610632
 GameObject:
   m_ObjectHideFlags: 0
@@ -104940,6 +105249,7 @@ GameObject:
   - component: {fileID: 1920604455}
   - component: {fileID: 1920604457}
   - component: {fileID: 1920604456}
+  - component: {fileID: 1920604458}
   m_Layer: 5
   m_Name: Text (TMP)_1
   m_TagString: Untagged
@@ -105015,8 +105325,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -105065,6 +105375,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920604454}
   m_CullTransparentMesh: 1
+--- !u!114 &1920604458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920604454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerAnimPlayerOnChange: 0
+  effectIntensityMultiplier: 50
+  appearancesContainer:
+    tagsFallback_Appearances:
+    - size
+    tagsFallback_Disappearances:
+    - size
+    values:
+      defaults:
+        sizeDuration: 0.3
+        sizeAmplitude: 2
+        fadeDuration: 0.3
+        verticalExpandDuration: 0.3
+        verticalFromBottom: 0
+        horizontalExpandDuration: 0.3
+        horizontalExpandStart: 0
+        diagonalExpandDuration: 0.3
+        diagonalFromBttmLeft: 0
+        offsetDir: {x: 1, y: 1}
+        offsetDuration: 0.3
+        offsetAmplitude: 1
+        rotationDuration: 0.3
+        rotationStartAngle: 180
+        randomDirDuration: 0.3
+        randomDirAmplitude: 1
+      presets: []
+  tags_fallbackBehaviors: []
+  behaviorValues:
+    defaults:
+      wiggleAmplitude: 0.15
+      wiggleFrequency: 7.67
+      waveFrequency: 4.78
+      waveAmplitude: 0.2
+      waveWaveSize: 0.18
+      angleSpeed: 180
+      angleDiffBetweenChars: 10
+      swingAmplitude: 27.5
+      swingFrequency: 5
+      swingWaveSize: 0
+      shakeStrength: 0.085
+      shakeDelay: 0.04
+      sizeAmplitude: 1.4
+      sizeFrequency: 4.84
+      sizeWaveSize: 0.18
+      slideAmplitude: 0.12
+      slideFrequency: 5
+      slideWaveSize: 0
+      bounceAmplitude: 0.08
+      bounceFrequency: 1
+      bounceWaveSize: 0.08
+      hueShiftSpeed: 0.8
+      hueShiftWaveSize: 0.08
+      fadeDelay: 1.2
+      dangleAmplitude: 0.13
+      dangleFrequency: 2.41
+      dangleWaveSize: 0.18
+      dangleAnchorBottom: 0
+      pendAmplitude: 25
+      pendFrequency: 3
+      pendWaveSize: 0.2
+      pendInverted: 0
+    presets: []
+  scriptable_globalBehaviorsValues: {fileID: 0}
+  scriptable_globalAppearancesValues: {fileID: 0}
+  useDynamicScaling: 0
+  referenceFontSize: -1
+  isResettingEffectsOnNewText: 1
+  timeScale: 0
 --- !u!1 &1927874714
 GameObject:
   m_ObjectHideFlags: 0
@@ -105252,7 +105642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 848.99, y: -69}
+  m_AnchoredPosition: {x: 760.79, y: -65}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935346863
@@ -105927,170 +106317,6 @@ MonoBehaviour:
   goodCountBullets: 2
   speed: 6
   playerData: {fileID: 11400000, guid: 3631de32659107f48b43f80851b46682, type: 2}
---- !u!43 &2036940268
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 0
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 0
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 0
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 0
-    _typelessdata: 
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 500, y: 500, z: 500}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &2040551033
 GameObject:
   m_ObjectHideFlags: 0
@@ -111068,17 +111294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d768f8f5008361443bf887f5ea7dc1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  i18NTextMesh: {fileID: 1869248195}
   textDialog: {fileID: 1869248193}
   playerMovementAdvanced: {fileID: 1583096785}
   strings:
   - ^dlg01_0
   - ^dlg01_1
   - ^dlg01_2
-  addStrings:
-  - 
-  - <shake></shake>
-  - 
   needCircle: 0
   circleTime: {fileID: 1935346865}
   timeWait: 2
