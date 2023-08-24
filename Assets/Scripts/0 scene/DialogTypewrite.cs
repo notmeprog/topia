@@ -8,7 +8,7 @@ using Honeti;
 public class DialogTypewrite : MonoBehaviour
 {
     [Header("Локализация")]
-    //public I18NTextMesh i18NTextMesh;
+    public I18NTextMesh i18NTextMesh;
 
     [Space(10)]
     [SerializeField] TextMeshProUGUI textDialog;
@@ -54,6 +54,7 @@ public class DialogTypewrite : MonoBehaviour
 
         numberString = 0;
         textDialog.text = strings[0];
+        i18NTextMesh.updateDialogText(strings[numberString]);
     }
 
     private void Update()
@@ -79,7 +80,7 @@ public class DialogTypewrite : MonoBehaviour
         numberString++;
         textDialog.text = strings[numberString];
 
-        //i18NTextMesh.updateDialogText(strings[numberString]);
+        i18NTextMesh.updateDialogText(strings[numberString]);
 
         print(strings[numberString]);
 
