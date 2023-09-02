@@ -28,6 +28,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     bool readyToJump;
 
     [Header("Crouching")]
+    public bool canCrouch = true;
     public float crouchSpeed;
     public float crouchYScale;
     private float startYScale;
@@ -127,14 +128,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
 
         // start crouch
-        if (Input.GetKeyDown(crouchKey) && !stopMoving)
+        if (Input.GetKeyDown(crouchKey) && !stopMoving && canCrouch)
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
         }
 
         // stop crouch
-        if (Input.GetKeyUp(crouchKey) && !stopMoving)
+        if (Input.GetKeyUp(crouchKey) && !stopMoving && canCrouch)
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }

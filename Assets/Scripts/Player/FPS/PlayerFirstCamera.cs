@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerFirstCamera : MonoBehaviour
 {
-    [SerializeField] float sensX;
-    [SerializeField] float sensY;
+    public float sensX;
+    public float sensY;
 
     [SerializeField] Transform orientation;
 
