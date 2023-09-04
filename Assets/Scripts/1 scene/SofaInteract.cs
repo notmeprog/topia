@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class SofaInteract : MonoBehaviour, IInteractable
 {
@@ -10,9 +11,12 @@ public class SofaInteract : MonoBehaviour, IInteractable
     [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject cutsceneCamera;
 
-    [Header("Audio")]
-    [SerializeField] AudioSource mainClip;
-    [SerializeField] AudioSource speechPart;
+    [Header("Dialog")]
+    [SerializeField] private GameObject canvasDialog;
+    [SerializeField] private MMFeedbacks enterFeedback;
+    [SerializeField] private Animator mainAudioAnim;
+    //[SerializeField] AudioSource mainClip;
+    //[SerializeField] AudioSource speechPart;
 
     bool interact = false;
 
@@ -30,10 +34,27 @@ public class SofaInteract : MonoBehaviour, IInteractable
         cutsceneCamera.SetActive(true);
         mainCamera.SetActive(false);
 
-        StartCoroutine("PlaySpeech");
+        StartCoroutine("StartRadioSpeech");
     }
 
-    IEnumerator PlaySpeech()
+    IEnumerator StartRadioSpeech()
+    {
+        yield return new WaitForSeconds(4);
+        enterFeedback?.PlayFeedbacks();
+        mainAudioAnim.SetTrigger("MusicDown");
+        yield return new WaitForSeconds(2);
+        canvasDialog.SetActive(true);
+    }
+
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*IEnumerator PlaySpeech()
     {
         yield return new WaitForSeconds(6);
         mainClip.volume /= 3;
@@ -41,7 +62,7 @@ public class SofaInteract : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(39);
         mainClip.volume *= 3;
-    }
+    }*/
 
     public void AfterInteract()
     {

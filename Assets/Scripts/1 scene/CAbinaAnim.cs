@@ -12,6 +12,7 @@ public class CAbinaAnim : MonoBehaviour
     [SerializeField] private AudioSource actuallyOpenAudio;
     [SerializeField] private AudioClip windSFX;
     [SerializeField] MMFeedbacks windFeedback;
+    [SerializeField] private GameObject playerObj;
 
     public void PlaySoundRotate()
     {
@@ -23,6 +24,8 @@ public class CAbinaAnim : MonoBehaviour
     {
         openDoorsAudio.Play();
         CameraShake.Instance.ShakeCamera(1f, .5f, 1);
+
+        playerObj.transform.SetParent(null);
     }
 
     public void ActuallyOpen()

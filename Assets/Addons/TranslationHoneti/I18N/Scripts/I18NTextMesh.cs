@@ -77,6 +77,7 @@ namespace Honeti
 
         public void updateDialogText(string keyDlg)
         {
+            //if (I18N.instance.getValue(keyDlg, _params) != null)
             _text.text = I18N.instance.getValue(keyDlg, _params);
         }
 
