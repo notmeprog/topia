@@ -11,7 +11,9 @@ public static class DifferentStatic
     public static bool destroyVine = false;
     public static float lifetimeVine = 10f;
 
-    public static bool isWeaponPickup = true;
+    public static bool isWeaponPickup = false;
+    public static bool isRadioSofaPlaying = false;
+    public static bool isTriggerHomeEnter = false;
 
     //publiс static bool destroyVines = false; //если спавнятся ещё лозы, старые удаляются
 

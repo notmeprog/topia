@@ -15,6 +15,11 @@ public class BridgeControl : MonoBehaviour
     [Header("Animator")]
     [SerializeField] Animator bridgeAnim;
 
+    [Header("Tip")]
+    [SerializeField] private GameObject tipText;
+    bool oneTime = false;
+
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -26,16 +31,23 @@ public class BridgeControl : MonoBehaviour
         audioSource.Play();
     }
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyUp(KeyCode.P))
             bridgeAnim.SetTrigger("bridgeDown");
-    }
+    }*/
 
     public void AnimEffect()
     {
         Instantiate(dustParticle, pointParticle.position, Quaternion.identity);
         CameraShake.Instance.ShakeCamera(4f, 0.2f, 1);
         bridgeFeedback?.PlayFeedbacks();
+
+        if (!oneTime)
+        {
+            oneTime = true;
+
+            tipText.SetActive(true);
+        }
     }
 }

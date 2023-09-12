@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class SofaInteract : MonoBehaviour, IInteractable
 {
@@ -12,13 +14,38 @@ public class SofaInteract : MonoBehaviour, IInteractable
     [SerializeField] GameObject cutsceneCamera;
 
     [Header("Dialog")]
+    [SerializeField] private DialogTypewrite dialogTypewriteSc;
     [SerializeField] private GameObject canvasDialog;
     [SerializeField] private MMFeedbacks enterFeedback;
     [SerializeField] private Animator mainAudioAnim;
+
+    [Header("ChangeMusic")]
+    [SerializeField] private MMFeedbacks switchFeedback;
+    [SerializeField] private AudioSource mainAudio;
+    [SerializeField] private AudioClip audioClip;
+
+    [Header("Distortion")]
+    public Volume volume;
+    LensDistortion lensDistortion;
+
+    public AnimationCurve curveStart; // Кривая изменения искажения
+    public float startDuration = 5.0f; // Продолжительность анимации
+    [Space(10)]
+    public AnimationCurve curveEnd; // Кривая изменения искажения
+    public float endDuration = 2.0f; // Продолжительность анимации
+    bool oneTime = false;
     //[SerializeField] AudioSource mainClip;
     //[SerializeField] AudioSource speechPart;
 
     bool interact = false;
+
+    void Start()
+    {
+        if (volume.profile.TryGet(out LensDistortion distortion))
+        {
+            lensDistortion = distortion;
+        }
+    }
 
 
     public void Highlight()
@@ -34,16 +61,58 @@ public class SofaInteract : MonoBehaviour, IInteractable
         cutsceneCamera.SetActive(true);
         mainCamera.SetActive(false);
 
-        StartCoroutine("StartRadioSpeech");
+        if (!DifferentStatic.isRadioSofaPlaying)
+            StartCoroutine("StartRadioSpeech");
     }
 
     IEnumerator StartRadioSpeech()
     {
+        DifferentStatic.isRadioSofaPlaying = true;
         yield return new WaitForSeconds(4);
         enterFeedback?.PlayFeedbacks();
         mainAudioAnim.SetTrigger("MusicDown");
         yield return new WaitForSeconds(2);
         canvasDialog.SetActive(true);
+    }
+
+    IEnumerator DistortionStart()
+    {
+        float startTime = Time.time;
+        float endTime = startTime + startDuration;
+
+        while (Time.time < endTime)
+        {
+            float timeSinceStart = Time.time - startTime;
+            float normalizedTime = timeSinceStart / startDuration;
+
+            float distortionValue = curveStart.Evaluate(normalizedTime);
+
+            lensDistortion.intensity.Override(distortionValue);
+
+            yield return null;
+        }
+
+        // Убедитесь, что значение параметра устанавливается в конечное значение после завершения анимации
+        lensDistortion.intensity.Override(curveStart.Evaluate(1.0f));
+    }
+
+    private void Update()
+    {
+        if (dialogTypewriteSc.endDialog && !oneTime && interact)
+        {
+            oneTime = true;
+
+            switchFeedback?.PlayFeedbacks();
+            mainAudio.clip = audioClip;
+            mainAudio.Play();
+
+            //StartCoroutine("DistortionStart");
+        }
+
+        if (Input.GetKey(KeyCode.Escape) && interact)
+        {
+            AfterInteract();
+        }
     }
 
 
@@ -70,13 +139,32 @@ public class SofaInteract : MonoBehaviour, IInteractable
 
         cutsceneCamera.SetActive(false);
         mainCamera.SetActive(true);
+
+        mainAudioAnim.SetTrigger("MusicUp");
+
+        //StartCoroutine("DistortionEnd");
     }
 
-    void Update()
+    IEnumerator DistortionEnd()
     {
-        if (Input.GetKey(KeyCode.Escape) && interact)
+        yield return new WaitForSeconds(5);
+
+        float startTime = Time.time;
+        float endTime = startTime + endDuration;
+
+        while (Time.time < endTime)
         {
-            AfterInteract();
+            float timeSinceStart = Time.time - startTime;
+            float normalizedTime = timeSinceStart / endDuration;
+
+            float distortionValue = curveEnd.Evaluate(normalizedTime);
+
+            lensDistortion.intensity.Override(distortionValue);
+
+            yield return null;
         }
+
+        // Убедитесь, что значение параметра устанавливается в конечное значение после завершения анимации
+        lensDistortion.intensity.Override(curveEnd.Evaluate(1.0f));
     }
 }

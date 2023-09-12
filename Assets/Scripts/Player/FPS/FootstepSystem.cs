@@ -21,7 +21,7 @@ public class FootstepSystem : MonoBehaviour
     {
         if (Physics.Raycast(rayStart.position, rayStart.transform.up * -1, out hit, range, layerMask))
         {
-            print("step");
+            //print("step");
             if (hit.collider.CompareTag("Grass"))
             {
                 PlayFootstepSound(grass);

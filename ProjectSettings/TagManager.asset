@@ -19,6 +19,7 @@ TagManager:
   - VineWall
   - Trigger
   - SimpleEnemy
+  - lb_perchTarget
   layers:
   - Default
   - TransparentFX
@@ -41,8 +42,8 @@ TagManager:
   - Pickup
   - DistortionEffect
   - WeaponCamera
-  - 
-  - 
+  - ButtonPurple
+  - ButtonGreen
   - 
   - 
   - 
