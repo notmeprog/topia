@@ -10,7 +10,7 @@ public class SofaInteract : MonoBehaviour, IInteractable
     public GameObject[] highlightObj;
 
     [Header("Cameras")]
-    [SerializeField] GameObject mainCamera;
+    GameObject mainCamera;
     [SerializeField] GameObject cutsceneCamera;
 
     [Header("Dialog")]
@@ -25,7 +25,7 @@ public class SofaInteract : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip audioClip;
 
     [Header("Player")]
-    [SerializeField] private Transform player;
+    private Transform player;
 
     [Header("TextTip")]
     [SerializeField] private Animator textExit;
@@ -47,6 +47,9 @@ public class SofaInteract : MonoBehaviour, IInteractable
 
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("CMcam1");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
         if (volume.profile.TryGet(out LensDistortion distortion))
         {
             lensDistortion = distortion;

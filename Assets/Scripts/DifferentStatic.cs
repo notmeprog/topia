@@ -15,6 +15,13 @@ public static class DifferentStatic
     public static bool isRadioSofaPlaying = false;
     public static bool isTriggerHomeEnter = false;
 
+    public static bool tipRunShowed = false;
+    public static bool bridgeOpen = true;
+    public static bool isOwlShadowInteract = false;
+    public static bool isBackInteract = false;
+    public static bool playerSeeKrot = false;
+    public static bool playerSeeOwl = false;
+
     //publiс static bool destroyVines = false; //если спавнятся ещё лозы, старые удаляются
 
     //scene 2

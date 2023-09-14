@@ -103,6 +103,7 @@ public class CabinaScene : MonoBehaviour
         playerFirstCamera.sensX = 65;
         mainAudioPitch.enabled = true;
         mainAudioPitch.gameObject.GetComponent<AudioSource>().enabled = true;
+        mainAudioPitch.SetTrigger("StartOfGame");
 
     }
 

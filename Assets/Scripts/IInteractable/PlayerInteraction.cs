@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public Camera mainCam;
+    Camera mainCam;
     public float interactionDistance = 10;
 
     public GameObject interactionUI;
 
     public GameObject[] interactableObjects;
+
+    private void Start()
+    {
+        mainCam = Camera.main;
+    }
 
 
     void Update()

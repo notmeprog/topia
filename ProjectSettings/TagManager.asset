@@ -21,6 +21,9 @@ TagManager:
   - SimpleEnemy
   - lb_perchTarget
   - PickupCube
+  - Shotgun
+  - CMcam1
+  - Crosshair
   layers:
   - Default
   - TransparentFX

@@ -43,6 +43,8 @@ public class InteractFar : MonoBehaviour
 
     void KrotHide()
     {
+        DifferentStatic.playerSeeKrot = true;
+
         krotAnim.GetComponent<BoxCollider>().enabled = false;
 
         krotAnim.SetTrigger("Hide");
@@ -50,6 +52,8 @@ public class InteractFar : MonoBehaviour
 
     void OWLHide()
     {
+        DifferentStatic.playerSeeOwl = true;
+
         oneTime = true;
         owlFeedback?.PlayFeedbacks();
 

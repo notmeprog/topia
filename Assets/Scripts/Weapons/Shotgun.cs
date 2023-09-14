@@ -5,6 +5,7 @@ using MoreMountains.Feedbacks;
 
 public class Shotgun : MonoBehaviour
 {
+    public bool canShoot = false;
     public int damage = 60;
     [SerializeField] float range = 6;
     [SerializeField] float forceHit = 160f;
@@ -21,7 +22,7 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private GameObject spriteMaskEn;
     [SerializeField] private GameObject bloodParticle;
     [SerializeField] GameObject hitEffect;
-    [SerializeField] Animator crosshairAnim;
+    Animator crosshairAnim;
 
     [Header("Reload")]
     [SerializeField] WeaponReload weaponReloadSc;
@@ -38,6 +39,7 @@ public class Shotgun : MonoBehaviour
     void Awake()
     {
         playerMovementAdvanced = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementAdvanced>();
+        crosshairAnim = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Animator>();
     }
 
     void Start()
@@ -53,7 +55,7 @@ public class Shotgun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire && weaponReloadSc.ammoCount > 0)
+        if (Input.GetButton("Fire1") && Time.time > nextFire && weaponReloadSc.ammoCount > 0 && canShoot)
         {
             nextFire = Time.time + 1f / fireRate;
             Shoot();
@@ -92,7 +94,8 @@ public class Shotgun : MonoBehaviour
 
             if (hit.rigidbody != null)
             {
-                crosshairAnim.SetTrigger("Hit");
+                if (crosshairAnim != null)
+                    crosshairAnim.SetTrigger("Hit");
 
                 hit.rigidbody.AddForce(-hit.normal * forceHit);
             }
@@ -100,7 +103,8 @@ public class Shotgun : MonoBehaviour
             if (hit.collider.tag == "Krot")
             {
                 timeFreezerSc.FreezeTime(.1f);
-                crosshairAnim.SetTrigger("Hit");
+                if (crosshairAnim != null)
+                    crosshairAnim.SetTrigger("Hit");
 
                 KrotMain currentHit = hit.collider.GetComponent<KrotMain>();
                 if (currentHit != null)
@@ -109,7 +113,8 @@ public class Shotgun : MonoBehaviour
             else if (hit.collider.tag == "Destroyable")
             {
                 timeFreezerSc.FreezeTime(.1f);
-                crosshairAnim.SetTrigger("Hit");
+                if (crosshairAnim != null)
+                    crosshairAnim.SetTrigger("Hit");
 
                 DestroyableMain currentHit = hit.collider.GetComponent<DestroyableMain>();
                 if (currentHit != null)
@@ -121,7 +126,8 @@ public class Shotgun : MonoBehaviour
                 UseSpriteMask(hit, hit.collider.transform);
 
                 timeFreezerSc.FreezeTime(.1f);
-                crosshairAnim.SetTrigger("Hit");
+                if (crosshairAnim != null)
+                    crosshairAnim.SetTrigger("Hit");
 
                 EnemyMain enemy = hit.collider.GetComponent<EnemyMain>();
                 if (enemy != null)

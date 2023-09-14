@@ -8,6 +8,7 @@ using MoreMountains.Feedbacks;
 public class PlayerMovementAdvanced : MonoBehaviour
 {
     public bool stopMoving;
+    public bool isLoadingLevel = false;
 
     [Header("Movement")]
     private float moveSpeed;
@@ -223,8 +224,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
 
-        // turn gravity off while on slope
-        rb.useGravity = !OnSlope();
+        if (!isLoadingLevel)
+            rb.useGravity = !OnSlope();
     }
 
     private void SpeedControl()

@@ -43,8 +43,9 @@ public class BridgeControl : MonoBehaviour
         CameraShake.Instance.ShakeCamera(4f, 0.2f, 1);
         bridgeFeedback?.PlayFeedbacks();
 
-        if (!oneTime)
+        if (!oneTime && !DifferentStatic.tipRunShowed)
         {
+            DifferentStatic.tipRunShowed = true;
             oneTime = true;
 
             tipText.SetActive(true);

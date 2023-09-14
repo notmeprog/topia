@@ -46,6 +46,8 @@ public class BackInteract : MonoBehaviour, IInteractable
     {
         print("interact");
 
+        DifferentStatic.isBackInteract = true;
+
         if (oneTime)
             return;
 

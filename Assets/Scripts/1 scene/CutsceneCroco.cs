@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CutsceneCroco : MonoBehaviour
 {
+    [SerializeField] private Shotgun shotgunSc;
     [SerializeField] GameObject crocoObj;
     [Header("Камера")]
     [SerializeField] ChangeView changeViewSc;
@@ -23,6 +24,8 @@ public class CutsceneCroco : MonoBehaviour
 
     public void SetCutscene()
     {
+        shotgunSc.canShoot = false;
+
         changeViewSc.ChangeViewToAnother(crocoObj.transform);
 
         playerMovementAdvancedSc.stopMoving = true;
@@ -42,6 +45,7 @@ public class CutsceneCroco : MonoBehaviour
 
     void CloseCutscene()
     {
+        shotgunSc.canShoot = true;
         playerMovementAdvancedSc.stopMoving = false;
         changeViewSc.ChangeViewToPlayer();
     }

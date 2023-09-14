@@ -10,7 +10,7 @@ public class BinocularInteract : MonoBehaviour, IInteractable
     Vector2 cameraRot;
 
     [Header("Cameras")]
-    [SerializeField] GameObject mainCamera;
+    GameObject mainCamera;
     [SerializeField] GameObject binocularCamera;
     [SerializeField] GameObject binocularUI;
     [SerializeField] GameObject owl;
@@ -22,12 +22,15 @@ public class BinocularInteract : MonoBehaviour, IInteractable
     AudioSource audioSource;
 
     [Header("Player")]
-    [SerializeField] PlayerMovementAdvanced playerMovementAdvanced;
+    PlayerMovementAdvanced playerMovementAdvanced;
 
     bool interact = false;
 
     private void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("CMcam1");
+        playerMovementAdvanced = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementAdvanced>();
+
         audioSource = GetComponent<AudioSource>();
         cameraRot = freeLookCamera.CameraRot;
         binocularUIAnim = binocularUI.GetComponent<Animator>();
@@ -48,7 +51,8 @@ public class BinocularInteract : MonoBehaviour, IInteractable
         binocularCamera.SetActive(true);
         mainCamera.SetActive(false);
 
-        owl.SetActive(true);
+        if (!DifferentStatic.playerSeeOwl)
+            owl.SetActive(true);
     }
 
     public void AfterInteract()

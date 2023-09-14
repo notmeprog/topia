@@ -18,10 +18,12 @@ public class PressedBridge : MonoBehaviour
     public void BridgeDown()
     {
         bridgeAnim.SetTrigger("bridgeDown");
+        DifferentStatic.bridgeOpen = true;
     }
 
     public void BridgeUp()
     {
         bridgeAnim.SetTrigger("bridgeUp");
+        DifferentStatic.bridgeOpen = false;
     }
 }

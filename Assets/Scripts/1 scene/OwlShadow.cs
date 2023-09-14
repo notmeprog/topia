@@ -12,9 +12,12 @@ public class OwlShadow : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance < 12)
+        if (distance < 12 && !DifferentStatic.isOwlShadowInteract)
         {
-            EffectDisable();
+            DifferentStatic.isOwlShadowInteract = true;
+
+            if (featherParticles != null)
+                EffectDisable();
 
             gameObject.SetActive(false);
 
