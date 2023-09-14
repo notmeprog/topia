@@ -54,7 +54,7 @@ public class DialogTypewrite : MonoBehaviour
 
         numberString = 0;
         textDialog.text = strings[0];
-        //i18NTextMesh.updateDialogText(strings[numberString]);
+        i18NTextMesh.updateDialogText(strings[numberString]);
     }
 
     private void Update()
@@ -80,7 +80,7 @@ public class DialogTypewrite : MonoBehaviour
         numberString++;
         textDialog.text = strings[numberString];
 
-        //  i18NTextMesh.updateDialogText(strings[numberString]);
+        i18NTextMesh.updateDialogText(strings[numberString]);
 
         print(strings[numberString]);
 

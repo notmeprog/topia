@@ -6,16 +6,18 @@ public class OwlShadow : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] GameObject featherParticles;
+    [SerializeField] private AudioSource audioSource;
 
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance < 10)
+        if (distance < 12)
         {
             EffectDisable();
 
             gameObject.SetActive(false);
+
         }
 
     }
@@ -23,5 +25,7 @@ public class OwlShadow : MonoBehaviour
     void EffectDisable()
     {
         featherParticles.SetActive(true);
+        CameraShake.Instance.ShakeCamera(5f, 0.2f, 1);
+        audioSource.Play();
     }
 }

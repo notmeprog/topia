@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DeathPanel : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class DeathPanel : MonoBehaviour
     [SerializeField] private Transform pointRespawn;
     [SerializeField] private Transform player;
     [SerializeField] private GameObject mainPanel;
+
+    [Header("PressEffect")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private TextMeshProUGUI textRestart;
 
     bool oneTime = false;
     bool canEnter = false;
@@ -51,7 +56,15 @@ public class DeathPanel : MonoBehaviour
         {
             oneTime = true;
             StartCoroutine("Restart");
+            Effect();
         }
+    }
+
+    void Effect()
+    {
+        audioSource.Play();
+        textRestart.text = "<color=yellow><wave a=.8 f=1>press Enter to restart</wave></color>";
+        CameraShake.Instance.ShakeCamera(3f, 0.1f, 1);
     }
 
     IEnumerator Restart()

@@ -24,6 +24,12 @@ public class SofaInteract : MonoBehaviour, IInteractable
     [SerializeField] private AudioSource mainAudio;
     [SerializeField] private AudioClip audioClip;
 
+    [Header("Player")]
+    [SerializeField] private Transform player;
+
+    [Header("TextTip")]
+    [SerializeField] private Animator textExit;
+
     [Header("Distortion")]
     public Volume volume;
     LensDistortion lensDistortion;
@@ -57,6 +63,8 @@ public class SofaInteract : MonoBehaviour, IInteractable
     public void Interact()
     {
         interact = true;
+
+        textExit.gameObject.SetActive(true);
 
         cutsceneCamera.SetActive(true);
         mainCamera.SetActive(false);
@@ -98,7 +106,9 @@ public class SofaInteract : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (dialogTypewriteSc.endDialog && !oneTime && interact)
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        if (dialogTypewriteSc.endDialog && !oneTime && distance < 15)
         {
             oneTime = true;
 
@@ -107,6 +117,11 @@ public class SofaInteract : MonoBehaviour, IInteractable
             mainAudio.Play();
 
             //StartCoroutine("DistortionStart");
+        }
+
+        if (DifferentStatic.isRadioSofaPlaying && distance >= 15)
+        {
+            canvasDialog.SetActive(false);
         }
 
         if (Input.GetKey(KeyCode.Escape) && interact)
@@ -136,6 +151,8 @@ public class SofaInteract : MonoBehaviour, IInteractable
     public void AfterInteract()
     {
         interact = false;
+
+        textExit.SetTrigger("Out");
 
         cutsceneCamera.SetActive(false);
         mainCamera.SetActive(true);

@@ -20,6 +20,7 @@ TagManager:
   - Trigger
   - SimpleEnemy
   - lb_perchTarget
+  - PickupCube
   layers:
   - Default
   - TransparentFX

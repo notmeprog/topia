@@ -11,6 +11,11 @@ public class PlaneDeath : MonoBehaviour
     [SerializeField] private PlayerData playerData;
     [SerializeField] private AudioSource audioSource;
 
+    [Header("CubePointTeleport")]
+    [SerializeField] private Transform cubePoint;
+    [SerializeField] MMFeedbacks cubeTeleFeedback;
+    [SerializeField] private ParticleSystem particleSystemExplosion;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -23,6 +28,19 @@ public class PlaneDeath : MonoBehaviour
 
             Invoke("Death", 1f);
         }
+
+        if (other.tag == "PickupCube")
+        {
+            CubeFalling(other.gameObject);
+        }
+    }
+
+    void CubeFalling(GameObject cube)
+    {
+        cube.transform.position = cubePoint.position;
+        cubeTeleFeedback?.PlayFeedbacks();
+        particleSystemExplosion.Play();
+        CameraShake.Instance.ShakeCamera(5f, 0.1f, 1);
     }
 
     void Death()
