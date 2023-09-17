@@ -39,8 +39,9 @@ public class PlayerInteraction : MonoBehaviour
         {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
-            if (interactable != null)
+            if (interactable != null && hit.collider.tag != "NonInteractable")
             {
+                print(hit.collider.name);
                 hitSomething = true;
 
                 interactable.Highlight();

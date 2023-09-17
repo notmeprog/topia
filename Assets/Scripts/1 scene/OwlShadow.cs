@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class OwlShadow : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    Transform player;
     [SerializeField] GameObject featherParticles;
     [SerializeField] private AudioSource audioSource;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {

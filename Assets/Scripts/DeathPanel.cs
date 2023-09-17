@@ -18,7 +18,7 @@ public class DeathPanel : MonoBehaviour
 
     [Header("Teleport")]
     [SerializeField] private Transform pointRespawn;
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private GameObject mainPanel;
 
     [Header("PressEffect")]
@@ -28,6 +28,11 @@ public class DeathPanel : MonoBehaviour
     bool oneTime = false;
     bool canEnter = false;
 
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     private void OnEnable()
     {
         Invoke("Death", 1);
@@ -36,6 +41,8 @@ public class DeathPanel : MonoBehaviour
         canEnter = false;
 
         StartCoroutine("SetEnter");
+
+        textRestart.text = "<wave a=.8 f=.25>press Enter to restart</wave>";
     }
 
     IEnumerator SetEnter()

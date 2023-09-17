@@ -6,11 +6,12 @@ using MoreMountains.Feedbacks;
 public class BackInteract : MonoBehaviour, IInteractable
 {
     [SerializeField] Animator backAnim;
-    [SerializeField] Transform player;
+    Transform player;
     [SerializeField] Transform pointBack;
     [Header("Урон")]
     [SerializeField] int damage;
     [SerializeField] PlayerData playerData;
+    private PlayerMovementAdvanced playerMovementAdvanced;
 
     [Header("Удар")]
     [SerializeField] float rotationSpeed = 1.5f;
@@ -19,47 +20,60 @@ public class BackInteract : MonoBehaviour, IInteractable
     [SerializeField] private float attackRange = 1;
 
     [Space]
-    [Header("Камера")]
-    [SerializeField] ChangeView changeViewSc;
-
-    [Space]
     [Header("Диалог")]
     [SerializeField] GameObject uiCanvas;
+    [SerializeField] private DialogTypewrite dialogTypewriteSc;
+
+    string nonInteractTag = "NonInteractable";
 
     bool rotateToPlayer = false;
     bool oneTime = false;
+    bool twoTime = false;
 
     bool isInteract = false;
     public GameObject[] highlightObj;
 
     bool isHit = false;
 
-
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerMovementAdvanced = player.GetComponent<PlayerMovementAdvanced>();
+    }
 
     public void Highlight()
     {
-        for (int i = 0; i < highlightObj.Length; i++)
-            highlightObj[i].layer = LayerMask.NameToLayer("Interactable");
+        if (!DifferentStatic.isBackInteract)
+        {
+            for (int i = 0; i < highlightObj.Length; i++)
+                highlightObj[i].layer = LayerMask.NameToLayer("Interactable");
+        }
     }
 
     public void Interact()
     {
-        print("interact");
+        if (!DifferentStatic.isBackInteract)
+        {
+            print("interact");
 
-        DifferentStatic.isBackInteract = true;
+            DifferentStatic.isBackInteract = true;
 
-        if (oneTime)
-            return;
+            if (oneTime)
+                return;
 
-        oneTime = true;
+            oneTime = true;
 
-        rotateToPlayer = true;
-        Invoke("ResetRotation", .6f);
+            rotateToPlayer = true;
+            Invoke("ResetRotation", .6f);
+        }
     }
 
     public void AfterInteract()
     {
         backAnim.SetTrigger("Idle");
+        playerMovementAdvanced.stopMoving = false;
+
+        gameObject.tag = nonInteractTag;
     }
 
     void HitAnimation()
@@ -95,7 +109,17 @@ public class BackInteract : MonoBehaviour, IInteractable
         hitFeedback?.PlayFeedbacks();
         CameraShake.Instance.ShakeCamera(4f, 0.2f, 1);
 
-        ChangeCameraLook();
+        if (playerData.health <= 0)
+            BackToStart();
+    }
+
+    void BackToStart()
+    {
+        backAnim.SetTrigger("BackToStart");
+
+        oneTime = false;
+        DifferentStatic.isBackInteract = false;
+        isHit = false;
     }
 
     private void Update()
@@ -112,6 +136,13 @@ public class BackInteract : MonoBehaviour, IInteractable
                 print("Поворот");
             }
         }
+
+        if (dialogTypewriteSc.endDialog && !twoTime)
+        {
+            twoTime = true;
+
+            AfterInteract();
+        }
     }
 
     void ResetRotation()
@@ -120,17 +151,19 @@ public class BackInteract : MonoBehaviour, IInteractable
             HitAnimation();
 
         rotateToPlayer = false;
-    }
 
-    void ChangeCameraLook()
-    {
-        changeViewSc.ChangeViewToAnother(pointBack);
-
-        Invoke("DialogActive", 2);
+        if (playerData.health > 0 && DifferentStatic.isBackInteract)
+            Invoke("DialogActive", 2);
     }
 
     void DialogActive()
     {
-        uiCanvas.SetActive(true);
+        if (playerData.health > 0 && DifferentStatic.isBackInteract)
+        {
+            playerMovementAdvanced.stopMoving = true;
+
+            uiCanvas.SetActive(true);
+            print("диалог");
+        }
     }
 }

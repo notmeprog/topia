@@ -6,7 +6,7 @@ using MoreMountains.Feedbacks;
 public class PlaneDeath : MonoBehaviour
 {
     [SerializeField] MMFeedbacks planeFeedback;
-    [SerializeField] private Transform playerObj;
+    private Transform playerObj;
     [SerializeField] private Transform[] restartPoints;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private AudioSource audioSource;
@@ -15,6 +15,11 @@ public class PlaneDeath : MonoBehaviour
     [SerializeField] private Transform cubePoint;
     [SerializeField] MMFeedbacks cubeTeleFeedback;
     [SerializeField] private ParticleSystem particleSystemExplosion;
+
+    private void Awake()
+    {
+        playerObj = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

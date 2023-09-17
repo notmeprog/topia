@@ -12,7 +12,7 @@ public class DialogTypewrite : MonoBehaviour
 
     [Space(10)]
     [SerializeField] TextMeshProUGUI textDialog;
-    [SerializeField] private PlayerMovementAdvanced playerMovementAdvanced;
+    private PlayerMovementAdvanced playerMovementAdvanced;
 
     [Header("Диалог")]
     public string[] strings;
@@ -44,6 +44,7 @@ public class DialogTypewrite : MonoBehaviour
 
     void Awake()
     {
+        playerMovementAdvanced = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementAdvanced>();
         dlgBoxAnim = GetComponent<Animator>();
     }
 
