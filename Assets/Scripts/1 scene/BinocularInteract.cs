@@ -51,6 +51,9 @@ public class BinocularInteract : MonoBehaviour, IInteractable
         binocularCamera.SetActive(true);
         mainCamera.SetActive(false);
 
+        DifferentStatic.canOpenPauseMenu = false;
+        playerMovementAdvanced.stopMoving = true;
+
         if (!DifferentStatic.playerSeeOwl)
             owl.SetActive(true);
     }
@@ -77,6 +80,7 @@ public class BinocularInteract : MonoBehaviour, IInteractable
 
         owl.SetActive(false);
 
+        DifferentStatic.canOpenPauseMenu = true;
         playerMovementAdvanced.stopMoving = false;
     }
 
@@ -85,8 +89,6 @@ public class BinocularInteract : MonoBehaviour, IInteractable
         interact = true;
 
         audioSource.PlayOneShot(cameraOpen);
-
-        playerMovementAdvanced.stopMoving = true;
     }
 
     void Update()

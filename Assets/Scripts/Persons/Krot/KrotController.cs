@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class KrotController : MonoBehaviour
 {
+    [SerializeField] private Animator audioPitch;
     [SerializeField] KrotPatterns[] krotPatterns;
+
+    [SerializeField] private Animator mainKrotAnim;
+    [SerializeField] private AudioSource krotAudio;
+    public AudioClip krotHides;
 
     public int countActive = 0;
 
@@ -15,8 +20,29 @@ public class KrotController : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine("PrepareToAttack");
+    }
+
+    IEnumerator PrepareToAttack()
+    {
+        yield return new WaitForSeconds(1);
+
+        audioPitch.SetTrigger("PitchUp");
+        mainKrotAnim.SetTrigger("KrotSee");
+
+        yield return new WaitForSeconds(1);
+        CameraShake.Instance.ShakeCamera(3f, 0.1f, 1);
+
+        yield return new WaitForSeconds(1);
+        StartAttack();
+    }
+
+    void StartAttack()
+    {
         for (int i = 0; i < krotPatterns.Length; i++)
             krotPatterns[i].gameObject.SetActive(false);
+
+        krotAudio.Play(); //sfx hide
 
         StartCoroutine("Patterns");
     }
@@ -30,8 +56,8 @@ public class KrotController : MonoBehaviour
         }*/
 
 
-        if (Input.GetKeyUp(KeyCode.M))
-            Pattern1();
+        //if (Input.GetKeyUp(KeyCode.M))
+        //Pattern1();
         /*if (Input.GetKeyUp(KeyCode.M))
             Pattern1();
 

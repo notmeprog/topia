@@ -25,6 +25,7 @@ TagManager:
   - CMcam1
   - Crosshair
   - NonInteractable
+  - WeaponHolder
   layers:
   - Default
   - TransparentFX

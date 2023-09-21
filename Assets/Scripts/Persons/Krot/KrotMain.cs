@@ -30,6 +30,7 @@ public class KrotMain : MonoBehaviour
     bool isActive = true;
     public bool IsActive => isActive;
 
+
     void Start()
     {
         maxHealth = health;
@@ -85,6 +86,7 @@ public class KrotMain : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (!isDead)
         {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             weapon.SetActive(false);
             krotAnim.SetTrigger("Escape");
             yield return new WaitForSeconds(1);
@@ -103,5 +105,7 @@ public class KrotMain : MonoBehaviour
         krotSprite.SetActive(false);
         ghostObj.SetActive(true);
         kaskaObj.SetActive(true);
+
+        gameObject.SetActive(false);
     }
 }

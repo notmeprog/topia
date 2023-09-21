@@ -5,7 +5,7 @@ using MoreMountains.Feedbacks;
 
 public class KrotPatterns : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    Transform playerObj;
     [SerializeField] float rotationSpeed = 1.5f;
 
     public KrotMain krotMainStats;
@@ -47,6 +47,7 @@ public class KrotPatterns : MonoBehaviour
 
     void Awake()
     {
+        playerObj = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
     }
 
@@ -97,7 +98,7 @@ public class KrotPatterns : MonoBehaviour
 
         if (rotateToPlayer)
         {
-            var direction = (player.position - gun.position).normalized;
+            var direction = (playerObj.position - gun.position).normalized;
             direction.y = 0f;
             gun.rotation = Quaternion.RotateTowards(gun.rotation, Quaternion.LookRotation(direction), rotationSpeed);
         }
@@ -144,9 +145,9 @@ public class KrotPatterns : MonoBehaviour
 
     void RocketDown()
     {
-        Instantiate(rocketDown, new Vector3(Random.Range(player.position.x - 8, player.position.x + 8),
+        Instantiate(rocketDown, new Vector3(Random.Range(playerObj.position.x - 8, playerObj.position.x + 8),
                                         50,
-                                        Random.Range(player.position.z - 8, player.position.z + 8)), Quaternion.Euler(-180, 0, 0));
+                                        Random.Range(playerObj.position.z - 8, playerObj.position.z + 8)), Quaternion.Euler(-180, 0, 0));
     }
 
     void Pattern1Shoot()

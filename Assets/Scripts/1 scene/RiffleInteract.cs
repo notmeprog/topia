@@ -9,7 +9,7 @@ public class RiffleInteract : MonoBehaviour, IInteractable
 
     [SerializeField] Transform weaponsParent;
 
-    [SerializeField] Transform realWeapon;
+    Transform realWeapon;
 
     [Header("PickupEffect")]
     [SerializeField] MMFeedbacks pickupEffect;
@@ -20,6 +20,18 @@ public class RiffleInteract : MonoBehaviour, IInteractable
     [SerializeField] CutsceneCroco cutsceneCroco;
 
     bool startMove = false;
+
+    private void Awake()
+    {
+        try
+        {
+            realWeapon = GameObject.FindGameObjectWithTag("WeaponHolder").transform.Find("RifleMain").transform;
+        }
+        catch
+        {
+            Debug.Log("Something gone wrong");
+        }
+    }
 
 
     public void Highlight()
@@ -48,6 +60,7 @@ public class RiffleInteract : MonoBehaviour, IInteractable
         DifferentStatic.isWeaponPickup = true;
 
         realWeapon.gameObject.SetActive(true);
+        realWeapon.gameObject.GetComponent<Shotgun>().enabled = true;
         gameObject.SetActive(false);
     }
 

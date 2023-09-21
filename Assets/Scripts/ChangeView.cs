@@ -6,7 +6,7 @@ using MoreMountains.Feedbacks;
 
 public class ChangeView : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    private CinemachineVirtualCamera virtualCamera;
 
     [Header("KinoEffect")]
 
@@ -17,7 +17,7 @@ public class ChangeView : MonoBehaviour
 
     [Header("Камеры")]
     [SerializeField] GameObject cutsceneCamera;
-    [SerializeField] GameObject normalCamera;
+    GameObject normalCamera;
     //CinemachineVirtualCamera cutsceneVirtualCamera;
 
     bool changeFOVCutscene = false;
@@ -40,6 +40,11 @@ public class ChangeView : MonoBehaviour
     [Header("Feedback")]
     [SerializeField] MMFeedbacks fovFeedback;
 
+    private void Awake()
+    {
+        normalCamera = GameObject.FindGameObjectWithTag("CMcam1");
+        virtualCamera = normalCamera.GetComponent<CinemachineVirtualCamera>();
+    }
 
     private void Start()
     {

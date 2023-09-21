@@ -5,7 +5,7 @@ using MoreMountains.Feedbacks;
 
 public class Shotgun : MonoBehaviour
 {
-    public bool canShoot = false;
+    public bool canShoot = true;
     public int damage = 60;
     [SerializeField] float range = 6;
     [SerializeField] float forceHit = 160f;
@@ -34,6 +34,11 @@ public class Shotgun : MonoBehaviour
     TimeFreezer timeFreezerSc;
 
     PlayerMovementAdvanced playerMovementAdvanced;
+
+    private void OnEnable()
+    {
+        canShoot = true;
+    }
 
 
     void Awake()

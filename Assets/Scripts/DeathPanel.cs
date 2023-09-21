@@ -25,17 +25,24 @@ public class DeathPanel : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private TextMeshProUGUI textRestart;
 
+    PlayerMovementAdvanced playerMovementAdvanced;
+
     bool oneTime = false;
     bool canEnter = false;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerMovementAdvanced = player.GetComponent<PlayerMovementAdvanced>();
     }
 
     private void OnEnable()
     {
         Invoke("Death", 1);
+
+        DifferentStatic.canOpenPauseMenu = false;
+
+        playerMovementAdvanced.stopMoving = true;
 
         oneTime = false;
         canEnter = false;
@@ -78,6 +85,9 @@ public class DeathPanel : MonoBehaviour
     {
         knob.SetTrigger("Restart");
         yield return new WaitForSecondsRealtime(1);
+
+        DifferentStatic.canOpenPauseMenu = true;
+        playerMovementAdvanced.stopMoving = false;
 
         player.position = pointRespawn.position;
         playerData.health = 10;

@@ -5,7 +5,7 @@ using MoreMountains.Feedbacks;
 
 public class WeaponThrow : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    Transform player;
     [SerializeField] float throwDuration = 1f; // Длительность броска в секундах
     [SerializeField] GameObject realWeapon;
     [SerializeField] TriggerWall triggerWallSc;
@@ -16,6 +16,21 @@ public class WeaponThrow : MonoBehaviour
     private bool startMove = true;
     private Animator animator;
     private float throwTimer = 0f; // Таймер для отслеживания времени броска
+
+    private void Awake()
+    {
+        print(gameObject.name);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        try
+        {
+            realWeapon = GameObject.FindGameObjectWithTag("WeaponHolder").transform.Find("RifleMain").gameObject;
+        }
+        catch
+        {
+            Debug.Log("Something gone wrong");
+        }
+    }
 
     private void Start()
     {
@@ -48,7 +63,7 @@ public class WeaponThrow : MonoBehaviour
 
     IEnumerator EnableRealGun()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.3f);
         cubeLookAt.SetTrigger("Hit");
         hitFeedback?.PlayFeedbacks();
         CameraShake.Instance.ShakeCamera(5f, 2f, 1);

@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !inSettings)
+        if (Input.GetKeyDown(KeyCode.Escape) && !inSettings && DifferentStatic.canOpenPauseMenu)
         {
             if (isPaused)
                 Resume();

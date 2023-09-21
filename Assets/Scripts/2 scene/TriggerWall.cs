@@ -10,7 +10,7 @@ public class TriggerWall : MonoBehaviour
     [SerializeField] private Transform mainKrot;
 
     [Header("Cameras")]
-    [SerializeField] private GameObject camera1;
+    private GameObject camera1;
     [SerializeField] private GameObject camera2;
 
     [Header("Krots")]
@@ -23,6 +23,7 @@ public class TriggerWall : MonoBehaviour
 
     [Header("Close Objects")]
     [SerializeField] private GameObject[] offElements;
+    GameObject weapon;
 
     [Header("CheckWeapon")]
     [SerializeField] private GameObject hands;
@@ -30,10 +31,25 @@ public class TriggerWall : MonoBehaviour
     [SerializeField] private GameObject rifleAnimated;
     [SerializeField] private Transform cubeLookAt;
 
+    [Header("CloseDialog")]
+    [SerializeField] private GameObject krotDialog;
+
     [Header("Player")]
-    [SerializeField] PlayerMovementAdvanced playerMovementAdvanced;
+    PlayerMovementAdvanced playerMovementAdvanced;
+
+    [Header("AudioPitch")]
+    [SerializeField] private Animator audioPitch;
+    [SerializeField] private AudioSource mainAudioSource;
+    [SerializeField] private AudioClip battleAudio;
+    [SerializeField] private GameObject ambientAudio;
 
     AudioSource audioSource;
+
+    private void Awake()
+    {
+        playerMovementAdvanced = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementAdvanced>();
+        camera1 = GameObject.FindGameObjectWithTag("CMcam1");
+    }
 
     void Start()
     {
@@ -55,7 +71,10 @@ public class TriggerWall : MonoBehaviour
 
     IEnumerator StartCutScene()
     {
-
+        audioPitch.SetTrigger("PitchDown");
+        mainAudioSource.clip = battleAudio;
+        mainAudioSource.Play();
+        ambientAudio.SetActive(true);
 
         yield return new WaitForSeconds(1);
 
@@ -63,6 +82,12 @@ public class TriggerWall : MonoBehaviour
 
         for (int i = 0; i < offElements.Length; i++)
             offElements[i].SetActive(false);
+
+        if (DifferentStatic.isWeaponPickup)
+        {
+            weapon = GameObject.FindGameObjectWithTag("WeaponHolder");
+            weapon.SetActive(false);
+        }
 
         camera1.SetActive(false);
         camera2.SetActive(true);
@@ -117,6 +142,9 @@ public class TriggerWall : MonoBehaviour
         yield return new WaitForSeconds(5f);
         hands.SetActive(false);
         cameraView.LookAt = cubeLookAt;
+
+        krotDialog.SetActive(false);
+
         yield return new WaitForSeconds(1.5f);
         rifleAnimated.SetActive(true);
     }
@@ -125,14 +153,21 @@ public class TriggerWall : MonoBehaviour
     {
         playerMovementAdvanced.stopMoving = false;
 
-        print("end");
-
+        //cameraView.GetComponent<Animator>().enabled = false;
         cameraView.gameObject.SetActive(false);
+
         rifleAnimated.SetActive(false);
+
+        SetController();
     }
 
     void SetController()
     {
+        if (weapon != null)
+        {
+            weapon.SetActive(true);
+        }
+
         playerMovementAdvanced.stopMoving = false;
 
         krotController.SetActive(true);
