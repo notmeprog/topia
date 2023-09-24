@@ -27,4 +27,6 @@ public static class DifferentStatic
 
     //scene 2
     public static bool wallEnter = false;
+    public static bool seeCutscene = false;
+    public static bool endBattle = false;
 }

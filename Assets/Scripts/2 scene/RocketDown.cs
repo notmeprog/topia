@@ -8,11 +8,14 @@ public class RocketDown : MonoBehaviour
     [SerializeField] private float destroyTime;
     [SerializeField] GameObject hitEffect;
     [SerializeField] int damage = 30;
+    [SerializeField] private float attackRange = 1;
 
     [Header("ХП игрока")]
     [SerializeField] private PlayerData playerData;
 
     AudioSource audioSource;
+
+    bool oneTime = false;
 
     Vector3 lastPosition;
 
@@ -32,18 +35,36 @@ public class RocketDown : MonoBehaviour
 
         if (Physics.Linecast(lastPosition, transform.position, out hitInfo))
         {
-            if (hitInfo.collider.tag != "Trigger")
+            if (hitInfo.collider.tag != "Trigger" && !oneTime)
             {
-                if (hitInfo.collider.tag == "Player")
-                    playerData.health -= damage;
-
                 Instantiate(hitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 audioSource.Play();
-                CameraShake.Instance.ShakeCamera(5f, 0.3f, 1);
+                CameraShake.Instance.ShakeCamera(7f, .5f, 2);
                 Destroy(gameObject, 1);
+
+                oneTime = true;
             }
         }
 
         lastPosition = transform.position;
+
+
+
+        Collider[] hitCollider = Physics.OverlapSphere(transform.position, attackRange);
+
+        foreach (Collider collider in hitCollider)
+        {
+            if (collider.tag == "Player" && !oneTime)
+            {
+                playerData.health -= damage;
+
+                Instantiate(hitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                audioSource.Play();
+                CameraShake.Instance.ShakeCamera(7f, .5f, 2);
+                Destroy(gameObject, 1);
+
+                oneTime = true;
+            }
+        }
     }
 }

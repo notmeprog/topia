@@ -106,6 +106,9 @@ public class KrotPatterns : MonoBehaviour
 
     public void DisableKrot()
     {
+        if (DifferentStatic.endBattle || krotMainStats.isMercy)
+            return;
+
         animator.enabled = true;
         animator.SetTrigger("Escape");
 
@@ -117,11 +120,17 @@ public class KrotPatterns : MonoBehaviour
 
     void EscapeKrot()
     {
+        if (DifferentStatic.endBattle || krotMainStats.isMercy)
+            return;
+
         gameObject.SetActive(false);
     }
 
     public void Pattern2Rocket()
     {
+        if (DifferentStatic.endBattle)
+            return;
+
         gunAnimator.enabled = true;
         rotateToPlayer = false;
 
@@ -132,19 +141,27 @@ public class KrotPatterns : MonoBehaviour
 
     void CreateRocket()
     {
+        if (DifferentStatic.endBattle || krotMainStats.isMercy)
+            return;
+
         Instantiate(rocket, shootPoint.position, shootPoint.rotation);
 
+        audioSource.pitch = .7f;
         audioSource.clip = rocketSFX;
         audioSource.Play();
 
         shootFeedback?.PlayFeedbacks();
-        CameraShake.Instance.ShakeCamera(4f, 0.1f, 1);
+        CameraShake.Instance.ShakeCamera(5f, 0.2f, 1);
 
         Invoke("RocketDown", 2);
     }
 
     void RocketDown()
     {
+        if (DifferentStatic.endBattle)
+            return;
+
+        CameraShake.Instance.ShakeCamera(2f, 3f, 1);
         Instantiate(rocketDown, new Vector3(Random.Range(playerObj.position.x - 8, playerObj.position.x + 8),
                                         50,
                                         Random.Range(playerObj.position.z - 8, playerObj.position.z + 8)), Quaternion.Euler(-180, 0, 0));
@@ -152,6 +169,9 @@ public class KrotPatterns : MonoBehaviour
 
     void Pattern1Shoot()
     {
+        if (DifferentStatic.endBattle || krotMainStats.isMercy)
+            return;
+
         rotateToPlayer = true;
 
         Invoke("CreatePlasm", .4f);
@@ -159,11 +179,12 @@ public class KrotPatterns : MonoBehaviour
 
     void CreatePlasm()
     {
-        if (!isActive)
+        if (!isActive || DifferentStatic.endBattle || krotMainStats.isMercy)
             return;
 
         ResetRotate();
 
+        audioSource.pitch = .9f;
         audioSource.clip = plasmaSFX;
         audioSource.Play();
 

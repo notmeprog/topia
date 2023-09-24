@@ -6,6 +6,7 @@ public class KrotController : MonoBehaviour
 {
     [SerializeField] private Animator audioPitch;
     [SerializeField] KrotPatterns[] krotPatterns;
+    [SerializeField] private Animator[] krotAnims;
 
     [SerializeField] private Animator mainKrotAnim;
     [SerializeField] private AudioSource krotAudio;
@@ -18,10 +19,12 @@ public class KrotController : MonoBehaviour
 
     bool stopFight = false;
 
-    void Start()
+    private void OnEnable()
     {
         StartCoroutine("PrepareToAttack");
+        count = 0;
     }
+
 
     IEnumerator PrepareToAttack()
     {
@@ -33,7 +36,12 @@ public class KrotController : MonoBehaviour
         yield return new WaitForSeconds(1);
         CameraShake.Instance.ShakeCamera(3f, 0.1f, 1);
 
-        yield return new WaitForSeconds(1);
+        for (int i = 0; i < krotAnims.Length; i++)
+        {
+            krotAnims[i].enabled = true;
+            krotAnims[i].SetTrigger("Escape");
+        }
+        yield return new WaitForSeconds(.7f);
         StartAttack();
     }
 
@@ -44,11 +52,19 @@ public class KrotController : MonoBehaviour
 
         krotAudio.Play(); //sfx hide
 
+        for (int i = 0; i < krotAnims.Length; i++)
+        {
+            krotAnims[i].enabled = false;
+        }
+
         StartCoroutine("Patterns");
     }
 
     void Update()
     {
+        if (DifferentStatic.endBattle)
+            StopAllCoroutines();
+
         /*if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + 1f / spawnRate;
@@ -117,11 +133,14 @@ public class KrotController : MonoBehaviour
             }
         }*/
 
+        if (DifferentStatic.endBattle)
+            return;
+
         for (int i = 0; i < countActive; i++)
         {
             int randomKrot = Random.Range(0, krotPatterns.Length);
 
-            if (!krotPatterns[randomKrot].IsActive && !krotPatterns[randomKrot].krotMainStats.IsDead)
+            if (!krotPatterns[randomKrot].IsActive && !krotPatterns[randomKrot].krotMainStats.IsDead && !krotPatterns[randomKrot].krotMainStats.isMercy)
             {
                 krotPatterns[randomKrot].gameObject.SetActive(true);
                 krotPatterns[randomKrot].Pattern1ForControl();
@@ -131,6 +150,8 @@ public class KrotController : MonoBehaviour
 
     void ActiveAllKrots()
     {
+        if (DifferentStatic.endBattle)
+            return;
         //for Pattern2
 
         for (int i = 0; i < krotPatterns.Length; i++)

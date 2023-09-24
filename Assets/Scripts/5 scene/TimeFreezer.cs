@@ -12,7 +12,7 @@ public class TimeFreezer : MonoBehaviour
 
     IEnumerator SoTimeFreeze(float duration)
     {
-        print("yop");
+        //print("yop");
         Time.timeScale = .1f;
         yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = 1;

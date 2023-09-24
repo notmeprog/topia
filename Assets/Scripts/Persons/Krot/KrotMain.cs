@@ -5,7 +5,7 @@ using MoreMountains.Feedbacks;
 
 public class KrotMain : MonoBehaviour
 {
-    [SerializeField] int health = 100;
+    public int health = 100;
     int maxHealth;
 
     [SerializeField] MMFeedbacks damageFeedback;
@@ -20,12 +20,14 @@ public class KrotMain : MonoBehaviour
     [SerializeField] GameObject ghostObj;
     [SerializeField] GameObject kaskaObj;
     [SerializeField] GameObject krotSprite;
-    bool isDead = false;
+    public bool isDead = false;
     public bool IsDead => isDead;
 
     [Header("Пощада")]
     [SerializeField] GameObject whiteFlag;
     [SerializeField] GameObject weapon;
+    public bool isMercy = false;
+    public bool isMercyEscape = false;
 
     bool isActive = true;
     public bool IsActive => isActive;
@@ -77,20 +79,24 @@ public class KrotMain : MonoBehaviour
         weapon.SetActive(false);
         //weapon.GetComponent<Animator>().SetTrigger("End");
 
+        isMercy = true;
         whiteFlag.SetActive(true);
         StartCoroutine("Escape");
     }
 
     IEnumerator Escape()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         if (!isDead)
         {
+            isMercyEscape = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;
             weapon.SetActive(false);
+
+            krotAnim.enabled = true;
             krotAnim.SetTrigger("Escape");
-            yield return new WaitForSeconds(1);
-            krotSprite.SetActive(false);
+            yield return new WaitForSeconds(.7f);
+            gameObject.SetActive(false);
         }
     }
 

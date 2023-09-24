@@ -24939,7 +24939,7 @@ MonoBehaviour:
   plasmaShoot: {fileID: 4859936606308198632, guid: ab437302209c0814ea6e18b23839a718,
     type: 3}
   plasmaSFX: {fileID: 8300000, guid: b7f066a8adb76974e9ac1dd92d3b19c0, type: 3}
-  rocketSFX: {fileID: 8300000, guid: 218680f67767a774b83fb91fc896898b, type: 3}
+  rocketSFX: {fileID: 8300000, guid: de04ca470539ede4d88e2d0091fbf7da, type: 3}
   audioSource: {fileID: 8218657021711515882}
   rocket: {fileID: 2591436109850814576, guid: 622cdf40b2cdf634c8cecf4ac4ff89ad, type: 3}
   rocketDown: {fileID: 6592052719244563811, guid: b8a6bfbdc20bc004c92a8837dfdd563c,

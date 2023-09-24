@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  layerMaskShoot:
+    serializedVersion: 2
+    m_Bits: 0
   destroyTime: 3
   hitEffect: {fileID: 1228869523896316, guid: cfd26614dff7742469a59d19d1403e93, type: 3}
   damage: 40
@@ -147,7 +150,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a51b6273cdde7684f8617c055e95ee1f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: de04ca470539ede4d88e2d0091fbf7da, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.685
   m_Pitch: 1

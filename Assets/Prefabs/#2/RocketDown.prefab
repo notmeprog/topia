@@ -14181,6 +14181,7 @@ MonoBehaviour:
   destroyTime: 10
   hitEffect: {fileID: 1228869523896316, guid: cfd26614dff7742469a59d19d1403e93, type: 3}
   damage: 30
+  attackRange: 3
   playerData: {fileID: 11400000, guid: 3631de32659107f48b43f80851b46682, type: 2}
 --- !u!82 &6038095086978026740
 AudioSource:

@@ -19364,7 +19364,7 @@ MonoBehaviour:
   speed: 40
   layerMaskShoot:
     serializedVersion: 2
-    m_Bits: 2064887
+    m_Bits: 8356343
   destroyTime: 3
   hitEffect: {fileID: 1228869523896316, guid: fc5bb91b75f2d534baa87e6dfa478b49, type: 3}
   damage: 35

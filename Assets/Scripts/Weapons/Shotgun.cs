@@ -94,7 +94,7 @@ public class Shotgun : MonoBehaviour
             GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impact, 2);
 
-            print(hit.collider.name);
+            //print(hit.collider.name);
 
 
             if (hit.rigidbody != null)
