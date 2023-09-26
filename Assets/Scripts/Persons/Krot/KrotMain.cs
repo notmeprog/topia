@@ -16,6 +16,7 @@ public class KrotMain : MonoBehaviour
     [SerializeField] Animator krotAnim;
 
     [Header("Not dead")]
+    [SerializeField] private GameObject dlgBox;
     [SerializeField] MMFeedbacks deadFeedback;
     [SerializeField] GameObject ghostObj;
     [SerializeField] GameObject kaskaObj;
@@ -76,7 +77,8 @@ public class KrotMain : MonoBehaviour
     {
         isActive = false;
 
-        weapon.SetActive(false);
+        if (weapon != null)
+            weapon.SetActive(false);
         //weapon.GetComponent<Animator>().SetTrigger("End");
 
         isMercy = true;
@@ -91,7 +93,9 @@ public class KrotMain : MonoBehaviour
         {
             isMercyEscape = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;
-            weapon.SetActive(false);
+
+            if (weapon != null)
+                weapon.SetActive(false);
 
             krotAnim.enabled = true;
             krotAnim.SetTrigger("Escape");
@@ -106,12 +110,17 @@ public class KrotMain : MonoBehaviour
 
         deadFeedback?.PlayFeedbacks();
 
-        weapon.SetActive(false);
+        if (weapon != null)
+            weapon.SetActive(false);
         whiteFlag.SetActive(false);
         krotSprite.SetActive(false);
         ghostObj.SetActive(true);
         kaskaObj.SetActive(true);
 
-        gameObject.SetActive(false);
+        if (dlgBox != null)
+            dlgBox.SetActive(false);
+
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        //gameObject.SetActive(false);
     }
 }
