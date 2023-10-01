@@ -11,7 +11,9 @@ namespace Honeti
     public enum LanguageCode
     {
         EN = 0,
-        RU = 1
+        RU = 1,
+        PT = 2,
+        SP = 3
     }
 
     /// <summary>
@@ -22,12 +24,17 @@ namespace Honeti
     /// </summary>
     public class I18N : MonoBehaviour
     {
+        private void Start()
+        {
+            _gameLang = _defaultLang;
+        }
+
         #region STATIC
 
         /// <summary>
         /// Default language.
         /// </summary>
-        private static LanguageCode _defaultLang = LanguageCode.EN;
+        public LanguageCode _defaultLang = LanguageCode.EN;
         private static I18N _instance = null;
 
         /// <summary>
@@ -219,7 +226,7 @@ namespace Honeti
 
 
 
-
+            //_gameLang = _defaultLang;
 
             PlayerPrefs.SetString(GAME_LANG, _gameLang.ToString());
 

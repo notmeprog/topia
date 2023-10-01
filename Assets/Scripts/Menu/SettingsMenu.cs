@@ -17,6 +17,7 @@ public class SettingsMenu : MonoBehaviour
     bool oneTime = false;
     [Header("Effect")]
     [SerializeField] MMFeedbacks exitFeedback;
+    [SerializeField] MMFeedbacks langFeedback;
 
     private void OnEnable()
     {
@@ -85,6 +86,12 @@ public class SettingsMenu : MonoBehaviour
             QualitySettings.shadows = ShadowQuality.All;
         else
             QualitySettings.shadows = ShadowQuality.Disable;
+    }
+
+    public void SetLanguage(int langIndex)
+    {
+        DifferentStatic.languageIndex = langIndex;
+        langFeedback?.PlayFeedbacks();
     }
 
     void Update()

@@ -28,6 +28,9 @@ public class PauseMenuNavigation : MonoBehaviour
         {
             SwitchButton(1);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))        //это если что убрать
+            buttons[currentButtonIndex].onClick.Invoke();
     }
 
     private void SwitchButton(int direction)
@@ -55,5 +58,6 @@ public class PauseMenuNavigation : MonoBehaviour
         currentButtonIndex = newIndex;
         textMeshProUGUIs[currentButtonIndex].color = selectedColor;
         buttons[currentButtonIndex].Select();
+
     }
 }

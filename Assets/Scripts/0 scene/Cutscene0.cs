@@ -32,6 +32,8 @@ public class Cutscene0 : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+
         playerMovementAdvanced.stopMoving = true;
 
         StartCoroutine("QueueTwoPersons");

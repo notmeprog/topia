@@ -19,7 +19,7 @@ public class PauseSettings : MonoBehaviour
     private void OnEnable()
     {
         oneTime = false;
-        Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 

@@ -6,6 +6,7 @@ using MoreMountains.Feedbacks;
 
 public class TriggerWall : MonoBehaviour
 {
+    [SerializeField] Animator wallStart;
     [SerializeField] private GameObject wall;
     [SerializeField] private ChangeView changeViewSc;
     [SerializeField] private Transform mainKrot;
@@ -99,8 +100,11 @@ public class TriggerWall : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!DifferentStatic.wallEnter)
+        if (!DifferentStatic.wallEnter && !DifferentStatic.endBattle)
         {
+            wallStart.SetTrigger("Out");
+            Invoke("NonActiveWallStart", 1);
+
             //audioSource.Play();
             audioSource.pitch = 1f;
             wall.SetActive(true);
@@ -116,6 +120,11 @@ public class TriggerWall : MonoBehaviour
                 SetController();
             }
         }
+    }
+
+    void NonActiveWallStart()
+    {
+        wallStart.gameObject.SetActive(false);
     }
 
     IEnumerator StartCutScene()

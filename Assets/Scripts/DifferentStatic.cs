@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class DifferentStatic
 {
+    public static int languageIndex = 0;
     public static int canReload = 0;
     public static bool openReloadGame = false;
 

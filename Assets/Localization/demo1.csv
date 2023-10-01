@@ -1,0 +1,97 @@
+Lang Code	RU	EN	PT	SP
+^dlg01_0	<color=yellow>один билет?</color>	<color=yellow>one ticket?</color>	<color=yellow>um ingresso?</color>	<color=yellow>¿un boleto?</color>
+^dlg01_1	Хмм..<shake><color=purple>хорошо</color></shake>	Hmm..<shake><color=purple>okey</color></shake>	Hmm..<shake><color=purple>ok</color></shake>	Mmmm...<shake><color=purple>está bien</color></shake>
+^dlg01_2	Следующий...	Next...	Próximo...	Próximo...
+^tickets_label	Билеты	Tickets	Ingressos	Entradas
+				
+	Добрый вечер, <color=yellow>вам в одну<?answr> сторону?</color>	Good evening, <color=yellow>do you need a one-way ticket<?answer>?</color>		
+	<?stop><shake><color=purple>Постойте!</color></shake> Прежде чем вы уйдете, 	<?stop><shake><color=purple>Wait a minute!</color></shake> Before you leave,		
+	не могли бы вы <color=yellow>ответить на пару вопросов?</color>	could you <color=yellow>answer a couple of questions?</color>		
+	<color=grey>Компания</color> <wave a=0.1 f=2><color=yellow>пытается улучшить</color></wave>  систему перевозок, и..	<color=gray>The company</color> <wave a=0.1 f=2><color=yellow>is trying to improve the </color></wave> transportation system, and..		
+	(*читает с листа) <color=green>«ваша помощь будет незаменима».</color>	(*reads from a sheet) <color=green> "your help will be irreplaceable."</color>		
+	<color=yellow>Часто ли</color> вы путешествуете по этому направлению<?answr>?	<color=yellow> How often</color> do you travel in this direction<?answer>?		
+	Как вы <color=yellow>оцениваете</color> качество <color=purple>транспортных кабин</color> <?answr>?	How do you <color=yellow> rate</color> the quality of <color=purple> transport cabins</color> <?answer>?		
+	<shake>И последний вопрос…</shake>	<shake>And the last question...</shake>		
+	<?danger><speed=.2>Какова цель вашей поездки <?answr>?	<?danger><speed=.2>What is the purpose of your trip <?answer>?		
+	<?backDanger><color=grey>«Спасибо, что уделили нам минутку, </color><color=red>LC imb. Очень ценит это!»</color>	<?backDanger><color=grey>"Thank you for giving us a minute, </color><color=red>LC imb. Really appreciates it!"</color>		
+	<speed=1>следующий…	<speed=1>next…		
+				
+^shrt0L2_0	в одну	one way the	em um	en uno
+^shrt0L2_1	первый раз	first time	primeira vez	primera vez
+^shrt0L2_2	обычно	normal	geralmente	generalmente
+^shrt0L2_3	работа	work	Trabalho	Trabajo
+				
+^shrt0R2_0	туда-обратно	round trip	Lá e de Volta Outra Vez	Ahí y de vuelta
+^shrt0R2_1	пять раза на дню	five times a day	cinco vezes por dia	cinco veces al día
+^shrt0R2_2	<rainb>качественно</rainb>	<rainb>qualitatively</rainb>	<rainb>qualidade</rainb>	<rainb>calidad</rainb>
+^shrt0R2_3	<color=red>работа</color>	<color=red>work</color>	<color=red>trabalho</color>	<color=red>trabajo</color>
+				
+^answ0L2_0	<i><bounce a=.04 f=.5>ха-ха, <color=yellow>снова угадала</color></bounce></i>, <speed=3>с вас 100G. <speed=1>	<i><bounce a=.04 f=.5>haha, <color=yellow>guessed right  again</color></bounce></i>, <speed=3>100G off you. <speed=1>	<i><bounce a=.04 f=.5>ha-ha, <color=yellow>Adivinhei de novo</color></bounce></i>, <speed=3>você tem 100G. <speed=1>	
+^answ0L2_1	<color=grey>угу,</color> следующий вопрос:	<color=grey>yep,</color> next question:	<color=grey>uh-huh,</color> próxima pergunta:	
+^answ0L2_2	должно быть <color=purple>тяжелый</color> день? <shake><color=grey>могу вас понять.</color></shake>	must <color=purple>be a hard</color> day? <shake><color=grey>I can understand you.</color></shake>	Deve ser um dia <color=purple>difícil</color>? <shake><color=grey>Posso entender você.</color></shake>	
+^answ0L2_3	<speed=.4>…Да? Должно быть у вас <color=purple>сложная работа</color>, не так ли?.	<speed=.4>...Yes? You must have a <color=purple>difficult job</color>, right?.	<speed=.4>...Sim? Você deve ter um <color=purple>trabalho difícil</color>, não é?	
+				
+^answ0R2_0	<i><lowercase>хмм..зачем тратиться еще и на обратный</lowercase ></i>, <speed=3>с вас 120G.<speed=1>…	<i><lowercase>hmm..why also spend money on a return ticket</lowercase></i>, <speed=3>120G from you.<speed=1>…	<i><lowercase>hmm..por que gastar dinheiro na devolução</lowercase </i>, <speed=3>você tem 120G.<speed=1>…	
+^answ0R2_1	<color=grey>ха-ха…</color> с <color=yellow>юмором</color> у вас все в порядке.	<color=grey>haha...</color> with <color=yellow>humor</color> you're all right.	<color=grey>ha-ha...</color> você está bem com <color=yellow>humor</color>.	
+^answ0R2_2	<wave a=0.1 f=2><color=grey>Приятно</color> осознавать</wave>, что они вам понравились.	<wave a=0.1 f=2><color=grey>It's nice</color> to know</wave> that you like them.	<wave a=0.1 f=2><color=grey>É bom</color> saber</wave> que você gostou deles.	
+^answ0R2_3	<speed=.4><color=grey>…</color>	<speed=.4><color=grey>…</color>	<speed=.4><color=cinza>…</color>	
+				
+				
+				
+^dlg02_0	Добрый вечер.. <color=yellow>куда направляетесь?</color>	Good evening.. <color=yellow>where are you going?</color>	Boa noite.. <color=yellow>onde você vai?</color>	Buenas noches... <color=yellow>¿Adónde vas?</color>
+^dlg02_1	<bounce>хмм,</bounce> <color=yellow>не самое</color> популярное направление.	<bounce>hmm,</bounce> <color=yellow>is not the most</color> popular direction.	<bounce>hmm,</bounce> <color=yellow>não é a direção mais</color> popular.	<bounce>hmm,</bounce> <color=yellow>no es la dirección más</color> popular.
+^dlg02_2	должно быть у вас <wave a=0.1 f=2><color=orange>интересная работа</color></wave>, не так ли?	you must have <wave a=0.1 f=2><color=orange>interesting work</color></wave>, right?	Você deve ter <wave a=0.1 f=2><color=orange>trabalho interessante</color></wave>, certo?	Debes tener un <wave a=0.1 f=2><color=orange>trabajo interesante</color></wave>, ¿verdad?
+^dlg02_3	<bounce a=.06 f=.7>хотя <color=green>по вам</color> такого не скажешь.. </bounce>	<bounce a=.06 f=.7>although <color=green>you</color> can't say that.. </bounce>	<bounce a=.06 f=.7>embora <color=green>você não diria isso</color>.. </bounce>	<bounce a=.06 f=.7>aunque <color=green>no dirías eso</color>... </bounce>
+^dlg02_4	<speed=.2><shake><color=purple>Ой…<speed=2>приношу свои глубочайшие извинения,</color></shake>	<speed=.2><shake><color=purple>Oh...<speed=2>my deepest apologies,</color></shake>	<speed=.2><shake><color=purple>Ah...<speed=2>minhas mais sinceras desculpas,</color></shake>	<speed=.2><shake><color=purple>Oh...<speed=2>mis más sinceras disculpas,</color></shake>
+^dlg02_5	<speed=1>я <color=purple>не хотела</color> ничего подобного сказать... С вас <color=yellow>100G.</color>	<speed=1>I <color=purple>didn't mean</color> to say anything like that... With you <color=yellow>100G.</color>	<speed=1>Eu <color=purple>não queria</color> dizer nada assim... Você tem <color=yellow>100G.</color>	<speed=1>Yo <color=purple>no quería</color> decir nada así... Tienes <color=yellow>100G.</color>
+^dlg02_6	<color=grey>«Счастливого пути!</color>	<color=grey>«Bon voyage!</color>	<color=grey>“Boa viagem!</color>	<color=grey>“¡Que tengas un buen viaje!</color>
+^dlg02_7	<?danger><speed=.3>LC imb <color=red>проследит</color> за вашей <color=grey>безопасностью</color> во время поездки»	<?danger><speed=.3>LC imb <color=red> will monitor </color> your <color=grey>safety</color> during the trip»	<?danger><speed=.3>LC imb <color=red>monitorará</color> sua <color=grey>segurança</color> durante a viagem"	<?danger><speed=.3>LC imb <color=red>supervisará</color> su <color=grey>seguridad</color> durante el viaje"
+^dlg02_8	<?backDanger><speed=1>следующий...	<?back Danger><speed=1>next...	<?backDanger><speed=1>próximo...	<?backDanger><speed=1>siguiente...
+				
+^tutor_move	Управление: W/A/S/D	Movement: W/A/S/D	Controle: W/A/S/D	Control: W/A/S/D
+				
+^dlg11_0	<?changeFontBack><color=yellow>приветствую,</color> слушатели, это <color=orange><wave a=0.2 f=1>"30 секунд с гостем"</wave></color>	<?change Font Back><color=yellow>greetings,</color> listeners, this is <color=orange><wave a=0.2 f=1>"30 seconds with a guest"</wave></color>	<?changeFontBack><color=yellow>olá,</color> ouvintes, aqui é <color=orange><wave a=0.2 f=1>"30 segundos com um convidado"</wave></color>	<?changeFontBack><color=yellow>hola,</color> oyentes, este es <color=orange><wave a=0.2 f=1>"30 segundos con un invitado"</wave></color>
+^dlg11_1	сегодня у нас в программе - человек, <color=green>борющийся за будущее планеты.</color>	Today we have on our program a person <color=green>fighting for the future of the planet.</color>	Hoje temos em nosso programa uma pessoa <color=green>lutando pelo futuro do planeta.</color>	Hoy tenemos en nuestro programa a una persona <color=green>luchando por el futuro del planeta.</color>
+^dlg11_2	<?changeFont><speed=.5>Спасибо за приглашение<?skip>…	<?changeFont><speed=.5>Thanks for the invitation<?skip>…	<?changeFont><speed=.5>Obrigado pelo convite<?skip>…	<?changeFont><speed=.5>Gracias por la invitación<?skip>…
+^dlg11_3	<?changeFontBack><speed=1.5>вы <color=yellow><wave a=0.2 f=1>серьезно</wave></color> думаете, что у нас есть какие-то <color=purple><bounce>проблемы</bounce></color> с экологией? 	<?change Font Back><speed=1.5>do you <color=yellow><wave a=0.2 f=1>seriously</wave></color> think that we have some <color=purple><bounce>problems</bounce></color> with ecology?	<?changeFontBack><speed=1.5>você <color=yellow><wave a=0.2 f=1>sério</wave></color> acha que temos alguns <color=purple><bounce> problemas</bounce> </color>com o meio ambiente?	<?changeFontBack><speed=1.5>tú <color=yellow><wave a=0.2 f=1>en serio</wave></color> crees que tenemos algunos <color=purple><bounce> problemas</bounce> </color>con el medio ambiente?
+^dlg11_4	<?changeFont><speed=.5>Конечно, я считаю<?skip>…	<?changeFont><speed=.5>Of course I think<?skip>…	<?changeFont><speed=.5>Claro, eu acho<?skip>…	<?changeFont><speed=.5>Por supuesto, creo<?skip>…
+^dlg11_5	<?changeFontBack><speed=1.5>И что вы <color=orange>предлагаете</color> для их решения? 	<?change Font Back><speed=1.5>And what do you <color=orange> offer</color> to solve them?	<?changeFontBack><speed=1.5>E o que você <color=orange>oferece</color> para resolvê-los?	<?changeFontBack><speed=1.5>¿Y qué <color=orange>ofreces</color> para solucionarlos?
+^dlg11_6	<?changeFont><speed=.3><shake>Эмм мы хотим</shake><?skip>…	<?changeFont><speed=.3><shake>Um we want</shake><?skip>…	<?changeFont><speed=.3><shake>Hum, nós queremos</shake><?skip>…	<?changeFont><speed=.3><shake>Um, queremos</shake><?skip>…
+^dlg11_7	<?changeFontBack><speed=1.5>И главный вопрос,<speed=.8><color=yellow> что нам простым гражданам</color> с этим делать? 	<?change Font Back><speed=1.5>And the main question, <speed=.8><color=yellow> what should we ordinary citizens</color> do with this?	<?changeFontBack><speed=1.5>E a questão principal é: <speed=.8><color=yellow> o que nós, cidadãos comuns,</color> devemos fazer sobre isso?	<?changeFontBack><speed=1.5>Y la pregunta principal es, <speed=.8><color=yellow> ¿qué deberíamos hacer los ciudadanos comunes y corrientes</color> al respecto?
+^dlg11_8	<?changeFont><speed=.5><color=purple><shake>Постойте, что вы.</shake></color><?skip>…	<?changeFont><speed=.5><color=purple><shake>Wait, what are you.</shake></color><?skip>…	<?changeFont><speed=.5><color=purple><shake>Espere, o que você está fazendo.</shake></color><?skip>…	<?changeFont><speed=.5><color=purple><shake>Espera, ¿qué estás haciendo?</shake></color><?skip>…
+^dlg11_9	<?changeFontBack><speed=1.5>Ииии <color=yellow><bounce>30 секунд</bounce></color> прошли	<?changeFontBack><speed=1.5>And <color=yellow><bounce>30 seconds</bounce></color> have passed	<?changeFontBack><speed=1.5>Aae <color=yellow><bounce>30 segundos</bounce></color> se passaram	Han pasado <?changeFontBack><speed=1.5>Aa y <color=yellow><bounce>30 segundos</bounce></color>
+^dlg11_10	<speed=1><color=yellow>спасибо</color>, что были с нами всё это время, 	<speed=1><color=yellow>thank you</color> for being with us all this time,	<speed=1><color=yellow>obrigado</color> por estar conosco todo esse tempo,	<speed=1><color=yellow>gracias</color> por estar con nosotros todo este tiempo,
+^dlg11_11	мы вернемся после ><color=orange><wiggle a= 0.03 f=1>музыкальной паузы</wiggle></color>	we will come back after ><color=orange><wiggle a= 0.03 f=1>music pause</wiggle></color>	estaremos de volta depois do ><color=orange><wiggle a= 0.03 f=1>pausa musical</wiggle></color>	volveremos después de ><color=orange><wiggle a= 0.03 f=1>pausa musical</wiggle></color>
+				
+^dlg12_0	<color=yellow>всем привет,</color> с вами по прежнему я <wave a=0.2 f=1><color=orange>в роли ведущего. </color></wave>	<color=yellow>hello everyone,</color> I am still with you <wave a=0.2 f=1><color=orange>as a presenter. </color></wave>	<color=yellow>olá a todos,</color> ainda estou com vocês <wave a=0.2 f=1><color=orange>como apresentador. </color></wave>	<color=yellow>hola a todos,</color> Todavía estoy con ustedes <wave a=0.2 f=1><color=orange>como presentador. </color></wave>
+^dlg12_1	это должна была быть пауза, 	it should have been a pause	deveria ter sido uma pausa	debería haber sido una pausa
+^dlg12_2	где наш <color=yellow>гость</color> рассказал бы о каком нибудь <bounce a=.06 f=.7><wiggle a= 0.13 f=.5><color=purple>интересном</color></wiggle></bounce> факте, 	where our <color=yellow>guest</color> would have told about some <bounce a=.06 f=.7><wiggle a= 0.13 f=.5><color=purple>interesting</color></wiggle></bounce> fact,	onde nosso <color=yellow>convidado</color> falaria sobre algo <bounce a=.06 f=.7><wiggle a= 0.13 f=.5><color=purple>interessante</color></wiggle></bounce> fato,	donde nuestro <color=yellow>invitado</color> hablaría sobre algún <bounce a=.06 f=.7><wiggle a= 0.13 f=.5><color=purple>interesante</color></ wiggle >> hecho,
+^dlg12_3	но эмм..кажется его не<bounce><color=yellow> пустили в здание хаха</color></bounce>	but um..it seems he was not<bounce><color=yellow> allowed into the building haha</color></bounce>	mas hum..parece que eles não<bounce><color=yellow> o deixaram entrar no prédio haha</color></bounce>	pero um... parece que no lo dejaron entrar al edificio jaja</color></bounce>
+^dlg12_4	так что <wave a=0.3 f=1><color=orange>давайте просто отдохнем</color></wave>…<color=grey>следующий трек</color>	so <wave a=0.3 f=1><color=orange>let's just relax</color></wave>...<color=grey>next track</color>	então <wave a=0.3 f=1><color=orange>vamos relaxar</color></wave>...<color=grey>próxima faixa</color>	así que <wave a=0.3 f=1><color=orange>vamos a relajarnos</color></wave>...<color=grey>siguiente pista</color>
+				
+^tip_run	Бег <color=yellow>"Shift"</color>	Run <color=yellow>"Shift"</color>	Execute <color=yellow>"Shift"</color>	Ejecute <color=yellow>"Shift"</color>
+^tip_exit	<color=yellow>"esc"</color>, чтобы выйти	<color=yellow>"esc"</color> to exit	<color=yellow>"esc"</color> para sair	<color=yellow>"esc"</color> para salir
+				
+^end_demo1	псс эй,	psst hey,	pss, ei	pss oye
+^end_demo2	<color=purple><shake>убери его!</shake></color>	<color=purple><shake>take it away!</shake></color>	<color=purple><shake>guarde-o!</shake></color>	<color=purple><shake>¡guárdalo!</shake></color>
+^end_demo3	никто не должен <color=purple>это</color> увидеть	no one should <color=purple>see this</color>	ninguém deveria <color=purple>isso</color> ver	nadie debería ver <color=purple>esto</color>
+				
+				
+^main_play	play	Играть	jogar	jugar
+^main_settings	settings	Настройки	configurações	ajustes
+^main_quit	quit	Выход	desistir	abandonar
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+^loading	загрузка	loading	carregando	cargando

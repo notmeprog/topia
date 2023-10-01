@@ -29,6 +29,8 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //print(DifferentStatic.canOpenPauseMenu);
+
         if (Input.GetKeyDown(KeyCode.Escape) && !inSettings)
         {
             if (isPaused && DifferentStatic.canOpenPauseMenu)
@@ -64,6 +66,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Options()
     {
+        print("options");
+
         pauseMenuNavigation.enabled = false;
         settingsPanel.SetActive(true);
         audioClick.Play();
